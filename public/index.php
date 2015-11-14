@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -110,6 +113,10 @@
 				transform: none;
 			}
 
+			.clickable {
+				cursor: pointer;
+			}
+
 		</style>
 	</head>
 
@@ -127,40 +134,56 @@
 					</a>
 				</li>
 
-				<li><a href="/Forum/default.asp">
-					Forum
-					</a>
-				</li>
-
 				<li><a href="/Account/default.asp">
 					Account
 					</a>
 				</li>
 
 				<li>
-					<div id="flip"> Log-in </div>
 
-						<div id="panel">
+					<?php
+						$loggedIn = ! empty($_SESSION['user']);
+						if ($loggedIn) {
+							echo "Welcome, " . $_SESSION['user']; ?>
+							<a href="logout.php">
+								Log out
+							</a> 
+							<?php
+						} else { ?>
+							
+							<div id="flip" class="clickable"> Log-in </div>
 
-							<form action="login.php" method="post">
+							<div id="panel">
 
-								<label>
-									Username
-									<input type="text" name="username">
-								</label>
+								<form action="login.php" method="post">
 
-								<br>
+									<label>
+										Username
+										<input type="text" name="username">
+									</label>
 
-								<label>
-									Password
-									<input type="password" name="password">
-								</label>
+									<br>
 
-								<button type="submit">
-									Log-in
-								</button>
-							</form>
-						</div>
+									<label>
+										Password
+										<input type="password" name="password">
+									</label>
+
+									<button type="submit">
+										Log-in
+									</button>
+
+									<br>
+
+									<a href="register.php">
+										Sign up now!
+									</a>
+								</form>
+							</div>
+							<?php 
+						}
+					?>
+
 				</li>
 			</ul>
 

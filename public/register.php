@@ -14,8 +14,8 @@ if ($formIsBeingSubmitted) {
 	$db = new Database();
 	$db->query("INSERT INTO users (username, password) VALUES (\"$username\", \"$password\")");
 
+	$_SESSION['user'] = $username;
 	header("Location: http://rdripley.com/forum");
-	die();
 }
 
 ?>
@@ -47,5 +47,11 @@ if ($formIsBeingSubmitted) {
 			</button>
 
 		</form>
+
+		<br>
+
+		<a href="index.html">
+			Go back
+		</a>
 	</body>
 </html>

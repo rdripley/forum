@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<title>
+			rdripley.com
+		</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+		<script>
+
+			$(document).ready(function(){
+				$("#activity").click(function(){
+
+			$("#panel").slideToggle("Slow");
+					});
+				});
+
+		</script>
+		
+		<style>
+
+			html {
+				min-height: 100%;
+				width: auto;
+			}
+
+			body {
+				min-height: 100%;
+				margin: 0;
+				min-width: 100%;
+			}
+
+			.container {
+				min-width: 1000px;
+				width: 1000px;
+				margin: 0 auto;
+			}
+
+			h4 {
+				background-color: lightgrey;
+				color: white;
+				padding: 10px;
+				margin: 0px;
+				border: 1px solid grey;
+			}
+
+			.menu {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			.menu li {
+				list-style-type: none;
+				padding: 5px;
+				margin: 0;
+				display: inline;
+				background-color: lightgrey;
+				color: white;
+				font-size: 18px;
+				float: left;
+				border: 1px solid grey;
+			}
+
+			.menu li a:hover {
+				background-color: grey;
+				color: white;
+
+			}
+
+			#activity, #panel {
+				
+				background-color: lightgrey;
+				color: white;
+				position: fixed;
+				bottom: 50px;
+				right: 0;
+				width: 100px;
+				height: 100px;
+				min-height: 80%;
+				border: 1px solid darkgrey;
+			}
+
+			#panel {
+				padding: 50px;
+				display: none;
+			}
+
+			#popular {
+					background-color: #f1f1c1;
+					width: 85%;
+					border: 1px solid black;
+					padding: 5px;
+			}
+
+			#topics {
+					background-color: #f1f1c1;
+					width: 85%;
+					border: 1px solid black;
+					padding: 5px;
+			}
+
+			th, td {
+					border: 1px solid black;
+					padding: 5px;
+				}
+
+		</style>
+	</head>
+
+	<body>
+
+		<div class="container">
+			<h4>
+				rdripley.com
+			</h4>
+			
+
+			<ul class="menu">
+				<li><a href="/Home/default.asp">
+					Home
+					</a>
+				</li>
+
+				<li><a href="/Forum/default.asp">
+					Forum
+					</a>
+				</li>
+
+				<li><a href="/Account/default.asp">
+					Account
+					</a>
+				</li>
+
+				<li><a href="/Log-in/default.asp">
+					Log-in
+					</a>
+				</li>
+			</ul>
+		</div>
+
+			<h1>
+				<em>Latest Posts</em>
+			</h1>
+
+			<table id="popular">
+				
+				<tr>
+					<th> Popular </th>
+					<th> # of Comments </th>
+					<th> Latest Post </th>
+				</tr>
+
+				<tr>
+					<td> Name </td>
+					<td> # of comments </td> 
+					<td> Date </td>
+				</tr>
+
+				<tr>
+					<td> Name </td>
+					<td> # of comments </td> 
+					<td> Date </td>
+				</tr>
+
+			</table>
+
+			<table id="topics">
+				
+				<tr>
+					<td> Popular </td>
+					<td> # of Comments </td>
+					<td> Latest Post </td>
+				</tr>
+
+				<tr>
+					<td> Name </td>
+					<td> # of comments </td> 
+					<td> Date </td>
+				</tr>
+
+				<tr>
+					<td> Name </td>
+					<td> # of comments </td> 
+					<td> Date </td>
+				</tr>
+
+			</table>
+
+
+			<div id="activity">
+				Activity
+			</div>
+
+			<div id="panel">
+				This is the activity section.
+			</div>
+	</body>
+</html>

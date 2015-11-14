@@ -2,6 +2,8 @@
 
 require('database.php');
 
+session_start();
+
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $formIsBeingSubmitted = $requestMethod === 'POST';
 

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,18 +12,34 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 		<script>
-
 			$(document).ready(function(){
-				$("#activity").click(function(){
-
-			$("#panel").slideToggle("Slow");
+				$("#flip").click(function(){
+					$("#panel").slideToggle("slow");
 					});
 				});
-
 		</script>
-		
-		<style>
 
+		<script>
+			$(document).ready(function(){
+				$("#fullactivity").click(function(){
+					$("#insideactivity").slideToggle("slow");
+					});
+				});
+		</script>
+
+		<style>
+			#panel, #flip {
+				padding: 0px;
+				text-align: center;
+				background-color: lightgrey;
+				border: solid 1px #c3c3c3;
+			}
+
+			#panel {
+				padding: 25px;
+				display: none;
+			}
+		
 			html {
 				min-height: 100%;
 				width: auto;
@@ -69,42 +88,53 @@
 
 			}
 
-			#activity, #panel {
-				
+
+			#insideactivity, #fullactivity {
+				display: block;
+				float: right;
 				background-color: lightgrey;
 				color: white;
 				position: fixed;
-				bottom: 50px;
-				right: 0;
-				width: 100px;
-				height: 100px;
-				min-height: 80%;
-				border: 1px solid darkgrey;
+				bottom: 500px;
+				right: 250px;
+				transform: rotate(270deg);
+				transform-origin: center top 0;
+				padding: 0px 30px 0px 30px;
+				text-align: center;
+				border: solid 1px #c3c3c3;
 			}
 
-			#panel {
-				padding: 50px;
+			#insideactivity {
+				padding: 25px;
 				display: none;
+				position: fixed;
+				bottom: 500px;
+				right: 250px;
+				transform: none;
 			}
 
-			#popular {
-					background-color: #f1f1c1;
-					width: 85%;
-					border: 1px solid black;
-					padding: 5px;
+			.clickable {
+				cursor: pointer;
 			}
 
-			#topics {
-					background-color: #f1f1c1;
-					width: 85%;
-					border: 1px solid black;
-					padding: 5px;
+			table {
+
+			}
+
+			table, th, td {
+				border: 1px solid black;
+				padding: 5px;
+				width: 50px;
+				height: 55px;
+			}
+
+			table {
+				background-color: lightgrey;
 			}
 
 			th, td {
-					border: 1px solid black;
-					padding: 5px;
-				}
+				background-color: white;
+			}
 
 		</style>
 	</head>
@@ -123,78 +153,92 @@
 					</a>
 				</li>
 
-				<li><a href="/Forum/default.asp">
-					Forum
-					</a>
-				</li>
-
 				<li><a href="/Account/default.asp">
 					Account
 					</a>
 				</li>
 
-				<li><a href="/Log-in/default.asp">
-					Log-in
-					</a>
+				<li>
+
+					<?php
+						$loggedIn = ! empty($_SESSION['user']);
+						if ($loggedIn) {
+							echo "Welcome, " . $_SESSION['user']; ?>
+							<a href="logout.php">
+								Log out
+							</a> 
+							<?php
+						} else { ?>
+							
+							<div id="flip" class="clickable"> Log-in </div>
+
+							<div id="panel">
+
+								<form action="login.php" method="post">
+
+									<label>
+										Username
+										<input type="text" name="username">
+									</label>
+
+									<br>
+
+									<label>
+										Password
+										<input type="password" name="password">
+									</label>
+
+									<button type="submit">
+										Log-in
+									</button>
+
+									<br>
+
+									<a href="register.php">
+										Sign up now!
+									</a>
+								</form>
+							</div>
+							<?php 
+						}
+					?>
+
 				</li>
 			</ul>
+
+			<nav>
+				<div id="fullactivity"> Activity </div>
+					
+					<div id="insideactivity">
+						This is where all the activity is!
+					</div>
+			</nav>
 		</div>
 
-			<h1>
-				<em>Latest Posts</em>
-			</h1>
-
-			<table id="popular">
-				
-				<tr>
-					<th> Popular </th>
-					<th> # of Comments </th>
-					<th> Latest Post </th>
-				</tr>
-
-				<tr>
-					<td> Name </td>
-					<td> # of comments </td> 
-					<td> Date </td>
-				</tr>
-
-				<tr>
-					<td> Name </td>
-					<td> # of comments </td> 
-					<td> Date </td>
-				</tr>
-
-			</table>
-
-			<table id="topics">
-				
+		<table>
 				<tr>
 					<td> Popular </td>
-					<td> # of Comments </td>
-					<td> Latest Post </td>
+					<td> Date </td>
+					<td> Post Title </td>
 				</tr>
 
 				<tr>
-					<td> Name </td>
-					<td> # of comments </td> 
-					<td> Date </td>
+					<td> Paul </td>
+					<td> 9/1/2001 </td>
+					<td> Sample Post </td>
 				</tr>
 
 				<tr>
-					<td> Name </td>
-					<td> # of comments </td> 
-					<td> Date </td>
+					<td> Russ </td>
+					<td> 10/10/2010 </td>
+					<td> More Sample Stuff </td>
 				</tr>
 
-			</table>
+				<tr>
+					<td> Paul Russ </td>
+					<td> 9/10/2001 </td>
+					<td> Combine Fake Data </td>
+				</tr>
 
-
-			<div id="activity">
-				Activity
-			</div>
-
-			<div id="panel">
-				This is the activity section.
-			</div>
 	</body>
 </html>

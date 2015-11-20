@@ -110,11 +110,31 @@
 				position: fixed;
 				bottom: 500px;
 				right: 250px;
-				transform: none;
+				transform: rotate(270deg);
 			}
 
 			.clickable {
 				cursor: pointer;
+			}
+
+			table {
+
+			}
+
+			table, th, td {
+				border: 1px solid black;
+				padding: 5px;
+				margin: 5px;
+				width: 450px;
+				height: 25px;
+			}
+
+			table {
+				background-color: lightgrey;
+			}
+
+			th, td {
+				background-color: white;
 			}
 
 		</style>
@@ -195,5 +215,62 @@
 					</div>
 			</nav>
 		</div>
+
+		<button type="submit">
+			Make a new thread
+		</button>
+
+		<table>
+				<tr>
+					<td> Popular </td>
+					<td> Date </td>
+					<td> Post Title </td>
+				</tr>
+
+				<tr>
+					<td> Paul </td>
+					<td> 9/1/2001 </td>
+					<td> <a href="thread.html"> Sample Post </td>
+				</tr>
+
+				<tr>
+					<td> Russ </td>
+					<td> 10/10/2010 </td>
+					<td> More Sample Stuff </td>
+				</tr>
+
+				<tr>
+					<td> Paul Russ </td>
+					<td> 9/10/2001 </td>
+					<td> Combine Fake Data </td>
+				</tr>
+		</table>
+
+		<table>
+				<tr>
+					<td> My Topics </td>
+					<td> Date </td>
+					<td> Post Title </td>
+				</tr>
+
+				<tr>
+					<td> Paul </td>
+					<td> 9/1/2001 </td>
+					<td> Sample Post </td>
+				</tr>
+
+				<tr>
+					<td> Russ </td>
+					<td> 10/10/2010 </td>
+					<td> More Sample Stuff </td>
+				</tr>
+
+				<tr>
+					<td> Paul Russ </td>
+					<td> 9/10/2001 </td>
+					<td> Combine Fake Data </td>
+				</tr>
+		</table>
+
 	</body>
 </html>

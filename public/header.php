@@ -220,4 +220,3 @@
             This is where all the activity is!
           </div>
       </nav>
-    </div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 	session_start();
 ?>
@@ -215,6 +216,9 @@
 					</div>
 			</nav>
 		</div>
+=======
+<?php require('header.php'); ?>
+>>>>>>> c6ad8a929a52bb084494072d6a0488a82bba7d05
 
 		<button type="submit">
 			Make a new thread
@@ -230,7 +234,11 @@
 				<tr>
 					<td> Paul </td>
 					<td> 9/1/2001 </td>
+<<<<<<< HEAD
 					<td> <a href="thread.html"> Sample Post </td>
+=======
+					<td> <a href="thread.php">Sample Post</a></td>
+>>>>>>> c6ad8a929a52bb084494072d6a0488a82bba7d05
 				</tr>
 
 				<tr>
@@ -272,5 +280,9 @@
 				</tr>
 		</table>
 
+<<<<<<< HEAD
 	</body>
 </html>
+=======
+<?php require('footer.php'); ?>
+>>>>>>> c6ad8a929a52bb084494072d6a0488a82bba7d05

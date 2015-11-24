@@ -155,12 +155,12 @@
 
 
       <ul class="menu">
-        <li><a href="/Home/default.asp">
+        <li><a href="index.php">
           Home
           </a>
         </li>
 
-        <li><a href="/Account/default.asp">
+        <li><a href="Account.html">
           Account
           </a>
         </li>

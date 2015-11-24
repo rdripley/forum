@@ -143,6 +143,13 @@
         height: 300px;
       }
 
+      textarea {
+        width: 400px;
+        height: 250px;
+        background-color: lightgrey;
+        border: 1px solid black;
+      }
+
     </style>
   </head>
 

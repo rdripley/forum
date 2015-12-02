@@ -1,7 +1,7 @@
 <?php require('header.php'); ?>
 
 
-<form>
+<form action="post_reply.php" method="post">
 	Title:
 	<input type="text">
 	<br>

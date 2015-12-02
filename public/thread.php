@@ -1,9 +1,5 @@
 <?php require('header.php'); ?>
 
-
-<form action="post_reply.php" method="post">
-	Title:
-	<input type="text">
 <h1>
 	This is the title of the thread.
 </h1>

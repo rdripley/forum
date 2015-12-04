@@ -96,7 +96,7 @@
         color: white;
         position: fixed;
         bottom: 500px;
-        right: 250px;
+        right: 270px;
         transform: rotate(270deg);
         transform-origin: center top 0;
         padding: 0px 30px 0px 30px;
@@ -109,7 +109,7 @@
         display: none;
         position: fixed;
         bottom: 500px;
-        right: 250px;
+        right: 270px;
         transform: rotate(270deg);
       }
 
@@ -117,16 +117,12 @@
         cursor: pointer;
       }
 
-      table {
-
-      }
-
       table, th, td {
         border: 1px solid #000;
         padding: 10px;
-        margin: 5px;
+        margin: 25px;
         width: 400px;
-        height: 100px;
+        height: 25px;
       }
 
       table {
@@ -151,6 +147,11 @@
           height: 100px;
       }
 
+      #newthread {
+          position: absolute;
+          top: 40px;
+          right: 300px;
+      }
     </style>
   </head>
 

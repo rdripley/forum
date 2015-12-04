@@ -1,8 +1,11 @@
 <?php require('header.php'); ?>
 
-		<button type="submit">
-			Make a new thread
-		</button>
+		<form action="make_thread.php" id="newthread">
+
+			<input type="submit" value="Make a New Thread">
+
+		</form>
+		
 
 		<table>
 				<tr>

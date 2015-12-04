@@ -122,11 +122,11 @@
       }
 
       table, th, td {
-        border: 1px solid black;
-        padding: 5px;
+        border: 1px solid #000;
+        padding: 10px;
         margin: 5px;
-        width: 450px;
-        height: 25px;
+        width: 400px;
+        height: 100px;
       }
 
       table {

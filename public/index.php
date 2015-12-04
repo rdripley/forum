@@ -14,7 +14,7 @@
 				<tr>
 					<td> Paul </td>
 					<td> 9/1/2001 </td>
-					<td> <a href="thread.php">Sample Post</a></td>
+					<td> <a href="view_thread.php">Sample Post</a></td>
 				</tr>
 
 				<tr>

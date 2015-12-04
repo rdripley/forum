@@ -1,17 +1,29 @@
 <?php require('header.php'); ?>
 
 
-<form>
+	<h3>
+	Create a New Thread
+	</h3>
+
+	<hr>
+
+
 	Title:
-	<input type="text">
-	<br>
+	<input placeholder="Some cool title">
 
-		<textarea>
-			Enter text here...
-		</textarea>
 
-	<br>
-	<input type="submit">
-</form>
+	<hr>
 
+	Contents:
+		<form action="make_thread.php">
+
+			<textarea placeholder="Enter your initial message here">
+			</textarea>
+
+			<br>
+
+			<button type="submit">
+				Submit
+			</button>
+		</form>
 <?php require('footer.php'); ?>

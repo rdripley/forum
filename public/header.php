@@ -137,17 +137,18 @@
         background-color: white;
       }
 
-      .thread-post {
-        background-color: lightgrey;
-        width: 100%;
-        height: 300px;
+      .post {
+          border: 1px solid #000;
+          padding: 10px;
+      }
+
+      .post__details {
+          font-weight: bold;
       }
 
       textarea {
-        width: 400px;
-        height: 250px;
-        background-color: lightgrey;
-        border: 1px solid black;
+          width: 400px;
+          height: 100px;
       }
 
     </style>

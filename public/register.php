@@ -14,8 +14,7 @@ if (formIsBeingSubmitted()) {
 	$_SESSION['user'] = $username;
 	$_SESSION['user_id'] = $db->getLastInsertedId();
 
-	print_r($_SESSION);
-	// header("Location: http://rdripley.com/forum");
+	header("Location: http://rdripley.com/forum");
 }
 
 ?>

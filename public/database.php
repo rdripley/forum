@@ -14,13 +14,12 @@ class Database {
 	public function query($query) {
 		$mysqli = new mysqli("localhost", self::USERNAME, self::PASSWORD, "doomsday_forum");
 		$result = $mysqli->query($query);
-
 		$this->lastInsertedId = $mysqli->insert_id;
 
 		return $result;
 	}
 
 	public function getLastInsertedId() {
-		return $lastInsertedId;
+		return $this->lastInsertedId;
 	}
 }

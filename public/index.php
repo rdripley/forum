@@ -7,11 +7,9 @@
 <section>
 	<table class="thread-table">
 		<tr>
-			<td>Popular</td>
-			<td>Date</td>
-			<td>
-				<a href="view_thread.php">Post Title</a>
-			</td>
+			<th>Author</th>
+			<th>Date</th>
+			<th>Post Title</th>
 		</tr>
 
 		<tr>

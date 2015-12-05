@@ -1,13 +1,10 @@
 <?php
 
-require('database.php');
+require('init_form.php');
 
 session_start();
 
-$requestMethod = $_SERVER['REQUEST_METHOD'];
-$formIsBeingSubmitted = $requestMethod === 'POST';
-
-if ($formIsBeingSubmitted) {
+if (formIsBeingSubmitted()) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 

@@ -26,6 +26,13 @@
 		</script>
 
 		<style>
+
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
 			#panel, #flip {
 				padding: 0px;
 				text-align: center;
@@ -39,14 +46,11 @@
 			}
 
 			html {
-				min-height: 100%;
 				width: auto;
 			}
 
 			body {
-				min-height: 100%;
 				margin: 0;
-				min-width: 100%;
 			}
 
 			.container {
@@ -113,20 +117,22 @@
 				cursor: pointer;
 			}
 
-			table, th, td {
-				border: 1px solid #000;
-				padding: 10px;
-				margin: 25px;
-				width: 400px;
-				height: 25px;
+			section {
+				margin-top: 25px;
 			}
 
-			table {
+			.thread-table, .thread-table th, .thread-table td {
+				border: 1px solid #000;
+			}
+
+			.thread-table {
 				background-color: lightgrey;
+				width: 100%;
 			}
 
 			th, td {
 				background-color: white;
+				padding: 10px;
 			}
 
 			.post {
@@ -155,7 +161,7 @@
 		<div class="container">
 			<h4>rdripley.com</h4>
 
-			<ul class="menu">
+			<ul class="menu clearfix">
 				<li>
 					<a href="index.php">Home</a>
 				</li>
@@ -208,6 +214,7 @@
 				</li>
 			</ul>
 
+			<!--
 			<nav>
 				<div id="fullactivity">Activity</div>
 
@@ -215,3 +222,4 @@
 						This is where all the activity is!
 					</div>
 			</nav>
+			-->

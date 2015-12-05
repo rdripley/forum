@@ -12,7 +12,10 @@ if (formIsBeingSubmitted()) {
 	$db->query("INSERT INTO users (username, password) VALUES (\"$username\", \"$password\")");
 
 	$_SESSION['user'] = $username;
-	header("Location: http://rdripley.com/forum");
+	$_SESSION['user_id'] = $db->getLastInsertedId();
+
+	print_r($_SESSION);
+	// header("Location: http://rdripley.com/forum");
 }
 
 ?>

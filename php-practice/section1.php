@@ -134,7 +134,9 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 7: Add a fifth element to $myArray -- a value of "I am Russell and I eat arrays for breakfast"
 // =======================================================================
 
-$myArray = ["Bob Ross", 102, 3.14, true, "I am Russell and I eat arrays for breakfast"];
+$myArray = ["Bob Ross", 102, 3.14, true];
+
+$myArray[4] =  "I am Russell and I eat arrays for breakfast";
 
 /**
  * You can print out an entire array with the native PHP print_r() function like this:
@@ -149,7 +151,9 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 8: Print out $myArray from PROBLEM 6
 // =======================================================================
 
-$myArray = ["Bob Ross", 102, 3.14, true, "I am Russell and I eat arrays for breakfast"];
+$myArray = ["Bob Ross", 102, 3.14, true];
+
+$myArray[4] =  "I am Russell and I eat arrays for breakfast";
 
 print_r($myArray);
 
@@ -165,9 +169,11 @@ print_r($myArray);
 // PROBLEM 9: Remove element 2 from $myArray and then print out the array.
 // =======================================================================
 
-$myArray = ["Bob Ross", 102, 3.14, true, "I am Russell and I eat arrays for breakfast"];
+$myArray = ["Bob Ross", 102, 3.14, true];
 
-unset($myArray[3]);
+$myArray[4] =  "I am Russell and I eat arrays for breakfast";
+
+unset($myArray[2]);
 
 print_r($myArray);
 
@@ -217,9 +223,10 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 $myAssocArray = [
 	'id' => 5, 
 	'color' => 'white',
-	'fallingToItsDeath' => false,
-	'rhinosEndangered' => true
+	'fallingToItsDeath' => false
 	];
+
+$myAssocArray['rhinosEndangered'] = true;
 
 print_r($myAssocArray);
 
@@ -237,7 +244,8 @@ $myAssocArray = [
 	'rhinosEndangered' => true
 	];
 
-	unset($myAssocArray[1]);
+	unset($myAssocArray['color']);
+
 	print_r($myAssocArray);
 
 echo "\n"; // Leave this before the next problem to move to the next line...
@@ -252,8 +260,9 @@ $myAssocArray = [
 	'color' => 'white',
 	'fallingToItsDeath' => false,
 	'rhinosEndangered' => true,
-	'ID' => 'added'
 	];
+
+	$myAssocArray['ID'] = 'added';
 
 	print_r($myAssocArray);
 

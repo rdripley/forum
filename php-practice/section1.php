@@ -173,7 +173,7 @@ $myArray = ["Bob Ross", 102, 3.14, true];
 
 $myArray[4] =  "I am Russell and I eat arrays for breakfast";
 
-unset($myArray[3]);
+unset($myArray[2]);
 
 print_r($myArray);
 

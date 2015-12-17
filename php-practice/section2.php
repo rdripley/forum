@@ -141,14 +141,15 @@ printNewline();
 
 $sumArray = array(1, 2, 3, 4); 
 
-function ($sumArray) {
-	foreach ($sumArray as $value);
+function sumArray($sumArray) {
 	$total = 0;
-	$total += $value;
-	return ($total);
-};
+		foreach ($sumArray as $value) {
+				$total += $value;
+				}
+		return ($total);
+}
 
-print_r($sumArray);
+echo sumArray($sumArray);
 
 printNewline();
 // =======================================================================

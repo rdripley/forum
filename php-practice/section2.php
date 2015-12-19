@@ -139,7 +139,7 @@ printNewline();
 // HINT: Use a foreach loop
 // =======================================================================
 
-$sumArray = array(1, 2, 3, 4); 
+$sumArray = array(1, 2, 3, 4);
 
 function sumArray($sumArray) {
 	$total = 0;
@@ -149,6 +149,7 @@ function sumArray($sumArray) {
 		}
 
 		return ($total);
+
 }
 
 echo sumArray($sumArray);

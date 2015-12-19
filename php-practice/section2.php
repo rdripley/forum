@@ -169,7 +169,7 @@ printNewline();
 				$sumIntegersTo100 += $value;
 		}
 
-		return ($value);
+		return ($sumIntegersTo100);
 }
 
 echo sumIntegersTo100();

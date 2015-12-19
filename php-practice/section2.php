@@ -143,9 +143,11 @@ $sumArray = array(1, 2, 3, 4);
 
 function sumArray($sumArray) {
 	$total = 0;
+
 		foreach ($sumArray as $value) {
 				$total += $value;
-				}
+		}
+
 		return ($total);
 }
 
@@ -159,6 +161,17 @@ printNewline();
 // HINT: Use a for loop
 // =======================================================================
 
+	function sumIntegersTo100 () {
+		$sumIntegersTo100 = 0;
+		
+			for ($value = 0; $value <= 100; $value++) {
+				$sumIntegersTo100 += $value;
+		}
+
+		return ($value);
+}
+
+echo sumIntegersTo100();
 
 printNewline();
 // =======================================================================

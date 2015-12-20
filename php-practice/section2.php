@@ -181,5 +181,17 @@ printNewline();
 // sum all numbers from 1 to $x. It should returns the sum.
 // =======================================================================
 
+	function newInteger () {
+		$value = 0;
+		
+			for ($x = 0; $x <= 30; $x++) {
+				$value += $x;
+		}
+
+		return ($value);
+}
+
+echo newInteger();
+
 // END
 printNewline();

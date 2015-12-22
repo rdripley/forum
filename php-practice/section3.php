@@ -99,21 +99,21 @@ print_r($usersToSendEmail);
 //  */
 
 // // ... and then we can get the next email address ...
-// $emailAddress = array_pop($usersToSendEmail);
+$emailAddress = array_pop($usersToSendEmail);
 
 // // ... until $usersToSendEmail is empty
 
 // // ... speaking of which, you can check if an array is empty with the empty() function:
-// $arrayIsEmpty = empty($usersToSendEmail);
+$arrayIsEmpty = empty($usersToSendEmail);
 
 // // Check out the PHP docs for empty:
 // // http://php.net/manual/en/function.empty.php
 
-// // What type of value does empty() return? [ANSWER HERE]
+// // What type of value does empty() return? [a false (boolean?) value]
 
 // // On the line above, I captured the return value of empty() into the $arrayIsEmpty variable
 // // Notice what value it returned when I var_dump the return value:
-// var_dump($arrayIsEmpty);
+var_dump($arrayIsEmpty);
 
 // *
 //  * **Medium-difficulty question**
@@ -125,9 +125,13 @@ print_r($usersToSendEmail);
 //  * HINT: It may help to use paper and pencil and write down what the array contains after each iteration of the loop
  
 
-// while ($REPLACE_THIS_VARIABLE_WITH_YOUR_CONDITION /* Edit the code inside these parentheses */) {
-//   array_pop($usersToSendEmail);
-// }
+while (!empty($originalArray)) {
+  $emailAddress = array_pop($usersToSendEmail);
+  $arrayIsEmpty = empty($usersToSendEmail);
+  }
+
+var_dump($arrayIsEmpty);
+print_r($usersToSendEmail);
 
 // /**
 //  * SECTION 3.3 -- ARRAY SHIFT and ARRAY UNSHIFT
@@ -154,36 +158,41 @@ print_r($usersToSendEmail);
 
 // // Let's play around with these!
 
-// $favoriteCheeseFoods = ['Cheeseburger', 'Cheesecake', 'Cheese Fondue'];
+$favoriteCheeseFoods = ['Cheeseburger', 'Cheesecake', 'Cheese Fondue'];
 
 // // On the next line use array_shift to remove the first element from this array and then echo that string out to the console:
 
+array_shift($favoriteCheeseFoods);
 
+print_r($favoriteCheeseFoods);
 // // On the next line use array_unshift to add another cheesey food to the *beginning* of the array:
 
-
+array_unshift($favoriteCheeseFoods, 'Cheesestick');
 // // Use print_r() on the next line to check out your array and verify that it worked:
+print_r($favoriteCheeseFoods);
 
-
-// $names = ['Billy', 'Joe', 'Suzy', 'Zach'];
+$names = ['Billy', 'Joe', 'Suzy', 'Zach'];
 
 // // Notice that these names are alphabetized.
 // // Check out this function I made that returns an array in the *reverse* order.
 // // I put some comments to help you understand it
 
-// function reverseArray($originalArray) { // Notice that it takes an array as an argument
-//   $newArray = []; // I create a new, empty array to build the reversed version
+function reverseArray($originalArray) { // Notice that it takes an array as an argument
+  $newArray = []; // I create a new, empty array to build the reversed version
 
-//   while (!empty($originalArray)) { // Do a while loop -- keep going until we've finished popping off values from the original array
-//     $newArray[] = array_pop($originalArray); // Pop a value (from the END of the old array) and put it in the new one
-//   }
+  while (!empty($originalArray)) { // Do a while loop -- keep going until we've finished popping off values from the original array
+    $newArray[] = array_pop($originalArray); // Pop a value (from the END of the old array) and put it in the new one
+  }
 
-//   return $newArray;
-// }
+  return $newArray;
+}
 
 // // Alright, let's see this baby in action! Uncomment the print_r() line and run this script.
-// $reversedNames = reverseArray($names);
-// // print_r($reversedNames);
+$reversedNames = reverseArray($names);
+print_r($reversedNames);
 
 // // In your own words, explain how the function I created works:
-// // [YOUR ANSWER HERE]
+// // [first we create our array $names. Then we want to run a function that passes the argument $originalArray. Inside our curly braces we put a while loop
+// since we wnat the code do run "while" a condition we specify remains true. In this case, we specify that "while" our argument ($originalArray) 
+// evaluates to "not empty" or "false" then we wnat the loop to "pop" a value off the end of the array and put in the new one, specified by the array $newArray[]
+// We then want to "return" the value in our $newArray and repeat the loop until the $originalArray is "empty" fulfilling our "while" loop.

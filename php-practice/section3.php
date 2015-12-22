@@ -144,7 +144,7 @@ print_r($usersToSendEmail);
  * Push ADDS an element onto the END of an array.
  * Pop REMOVES an element from the END of an array.
  * Shift REMOVES an element from the BEGINNING of an array.
- * Unshift ADDS an element from the BEGINNING of an array.
+ * Unshift ADDS an element to the BEGINNING of an array.
  *
  * Here's some documentation:
  *
@@ -171,6 +171,8 @@ array_unshift($favoriteCheeseFoods, 'Cheesestick');
 // Use print_r() on the next line to check out your array and verify that it worked:
 print_r($favoriteCheeseFoods);
 
+// Another example...
+
 $names = ['Billy', 'Joe', 'Suzy', 'Zach'];
 
 // Notice that these names are alphabetized.
@@ -195,5 +197,5 @@ print_r($reversedNames);
 //
 // first we create our array $names. Then we want to run a function that passes the argument $originalArray. Inside our curly braces we put a while loop
 // since we wnat the code do run "while" a condition we specify remains true. In this case, we specify that "while" our argument ($originalArray)
-// evaluates to "not empty" or "false" then we wnat the loop to "pop" a value off the end of the array and put in the new one, specified by the array $newArray[]
+// evaluates to "not empty" or "false" then we want the loop to "pop" a value off the end of the array and put in the new one, specified by the array $newArray[]
 // We then want to "return" the value in our $newArray and repeat the loop until the $originalArray is "empty" fulfilling our "while" loop.

@@ -17,7 +17,7 @@ class VideoGame {
   public $isMultiplayer; // Whether the game is a multiplayer game -- should be TRUE or FALSE
 
   // This is the contructor. Remember, this is the function that gets run whenever you create a new VideoGame object
-  public __construct($title, $publisher, $isMultiplayer) {
+  function __construct($title, $publisher, $isMultiplayer) {
     $this->title = $title;
     $this->publisher = $publisher;
     $this->isMultiplayer = $isMultiplayer;

@@ -124,15 +124,19 @@ var_dump($arrayIsEmpty);
 //  * HINT: Use the empty() function.
 //  * HINT: It may help to use paper and pencil and write down what the array contains after each iteration of the loop
  
+function sendEmails($usersToSendEmail) {
 
-while (!empty($originalArray)) {
-  $emailAddress = array_pop($usersToSendEmail);
-  $arrayIsEmpty = empty($usersToSendEmail);
+  while (!empty($usersToSendEmail)) {
+    $emailAddress = array_pop($usersToSendEmail);
   }
 
-var_dump($arrayIsEmpty);
-print_r($usersToSendEmail);
+  return $emailAddress;
+}
 
+$emptyEmailArray = sendEmails($usersToSendEmail);
+print_r($emptyEmailArray);
+
+echo PHP_EOL;
 // /**
 //  * SECTION 3.3 -- ARRAY SHIFT and ARRAY UNSHIFT
 //  *

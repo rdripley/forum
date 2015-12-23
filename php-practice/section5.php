@@ -291,4 +291,11 @@ $welcomeEmailer->send();
  *
  * The hard part -- it's up to YOU to determine what properties need to exist
  * and what code needs to exist in these methods.
+ *
+ * HINT: You can represent a single item in the cart as an associative array like this:
+ *
+ * $item = [
+ *   'name' => 'Pringles',
+ *   'cost' => 3.99
+ * ];
  */

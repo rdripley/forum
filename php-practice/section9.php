@@ -81,7 +81,7 @@
 /**
  * PROBLEM 5
  *
- * Create a class called HatOfNames to solve problem 4 more elegantly.
+ * Create a "Machine" class (see section5) called HatOfNames to solve problem 4 more elegantly.
  *
  * Let it have these methods:
  *

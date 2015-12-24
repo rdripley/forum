@@ -17,7 +17,7 @@ class VideoGame {
   public $publisher;
   public $isMultiplayer; // Whether the game is a multiplayer game -- should be TRUE or FALSE
 
-  // This is the CONTRUCTOR. Remember, this is the function that gets run whenever you create a new VideoGame object
+  // This is the CONSTRUCTOR. Remember, this is the function that gets run whenever you create a new VideoGame object.
   // Notice that this particular constructor takes 3 ARGUMENTS.
   // (An argument is a variable passed into a function.)
   public function __construct($title, $publisher, $isMultiplayer) {

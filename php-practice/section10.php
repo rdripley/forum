@@ -84,11 +84,29 @@ $cars = array(
 // you'll instead see LISTS of OBJECTS.
 
 // For example...
+
+/**
+ * A class representing the author of a book
+ */
 class Author {
+  /**
+   * Name of the author
+   * @var string
+   */
   public $name;
+
+  /**
+   * Genre in which the author typically writes
+   * @var string
+   */
   public $genre;
 
-  public __construct($name, $genre) {
+  /**
+   * Constructor for setting name and genre
+   * @param string $name  Name of the author
+   * @param string $genre Author's typical genre
+   */
+  public function __construct($name, $genre) {
     $this->name = $name;
     $this->genre = $genre;
   }

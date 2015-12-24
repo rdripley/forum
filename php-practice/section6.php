@@ -174,6 +174,10 @@ function sum1To100Evens() {
 // For a normal array, you can loop through all of the items with a for loop.
 // You can do this by using the count() function to get the number of elements in the array:
 
+/**
+ * Print out the given array of notes, with each note on a different line
+ * @param  array  $notes Note to print
+ */
 function printNotes(array $notes) {
   $count = count($notes);
 

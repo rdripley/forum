@@ -178,7 +178,15 @@ echo printLines(['Roses are red', 'Violets are blue', 'These are supposed to rhy
 
 // Here is one such "machine" class that represents a "number clicker"
 
+/**
+ * Class that holds the cound of something
+ */
 class Counter {
+  /**
+   * Current count
+   *
+   * @var integer
+   */
   private $count = 0; // Note, you can set a default value for properties like this
 
   /**
@@ -222,6 +230,9 @@ echo PHP_EOL;
  * to it as you discover all of the recipients that need to hear the message.
  */
 
+/**
+ * Class to send an email
+ */
 class Emailer {
   private $emailAddresses = [];
   private $message;

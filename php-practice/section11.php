@@ -2,6 +2,13 @@
 
 /**
  * SECTION 11 -- OBJECT ORIENTED PROGRAMMING -- INHERITANCE
+ *
+ * In this section we'll explore:
+ *   1. Class Inheritance
+ *   2. Multi-level Inheritance
+ *   3. Class Properties and Inheritance
+ *   4. Class Methods and Inheritance
+ *   5. Overriding Properties and Methods
  */
 
 // In object oriented programming languages (languages with classes and objects)
@@ -34,16 +41,16 @@ class User {
   private $username;
   private $email;
 
-  public __construct($username, $email) {
+  public function __construct($username, $email) {
     $this->username = $username;
     $this->email = $email;
   }
 
-  public getUsername() {
+  public function getUsername() {
     return $this->username;
   }
 
-  public getEmail() {
+  public function getEmail() {
     return $this->email;
   }
 }
@@ -55,16 +62,19 @@ $someUser->getEmail(); // Returns 'paulstat@example.com'
 // But we can also create "child" classes which "inherit" from their parent
 class Admin extends User {
   public function deleteUser($userId) {
-    echo 'Deleting user ID ' . $userId;
+    echo 'Deleting user ID ' . $userId . PHP_EOL;
   }
 }
+
+// We use the `extends` keyword to make the Admin class INHERIT from the Admin class
+// The Admin class INHERITS all of the User class's PROPERTIES, METHODS, and CONSTANTS.
 
 // Now we can create an Admin user that has a deleteUser() function:
 $someAdmin = new Admin('superadmin', 'superadmin@example.com');
 $someAdmin->getUsername(); // Returns 'superadmin'
-$someAdmin->deleteUser(); // Notice this echos out the message!
+$someAdmin->deleteUser(1); // Notice this echos out the message!
 
-echo PHP_EOL;
+// It's just as if we put all of those properties and methods directly inside the Admin class!
 
 /**
  * PROBLEM 1
@@ -73,24 +83,30 @@ echo PHP_EOL;
  * Give it a method called accessFreeContent that echos out the message "Accessing free content!"
  */
 
-// Note that if we called accessFreeContent() on $someAdmin, it would fail because that isn't defined
-// on the Admin class, or on the Admin class's parent class either (the User class)
-
 /**
- * 11.2 MULTI-LAYER INHERITANCE
+ * PROBLEM 2
+ *
+ * Note that if we called accessFreeContent() on $someAdmin, it would fail because that isn't defined
+ * on the Admin class, or on the Admin class's parent class either (the User class)
+ *
+ * Try it out below! (You can comment it out after trying so the file doesn't error.)
  */
 
-// The inheritance chain can go as many layers deep as you want.
+/**
+ * 11.2 MULTI-LEVEL INHERITANCE
+ */
+
+// The inheritance chain can go as many levels deep as you want.
 // A child class can have its own child class, grandchild classes, etc.
 
 // Check out this SuperAdmin class that has all the abilities of an Admin, but even more on top of those.
 class SuperAdmin extends Admin {
   public function deleteAdmin($adminId) {
-    echo 'Deleting admin ' . $adminId;
+    echo 'Deleting admin ' . $adminId . PHP_EOL;
   }
 
   public function deleteDatabase() {
-    echo 'Deleting the DATABASE -- because I\'m a baller SUPERADMIN, that\'s why!';
+    echo 'Deleting the DATABASE -- because I\'m a baller SUPERADMIN, that\'s why!' . PHP_EOL;
   }
 }
 
@@ -98,6 +114,7 @@ class SuperAdmin extends Admin {
 // inherits from both of those classes.
 $paul = new SuperAdmin('paul', 'paul@s.com');
 echo $paul->getUsername();
+echo PHP_EOL;
 $paul->deleteUser(5); // This is from the Admin class
 $paul->deleteAdmin(10);
 $paul->deleteDatabase();
@@ -110,7 +127,7 @@ $paul->deleteDatabase();
 // $admin->deleteDatabase();
 
 /**
- * PROBLEM 2
+ * PROBLEM 3
  *
  * Create a child class of FreeTierUser called PremiumUser
  * Let it have a method called accessPremiumContent that prints out this message:
@@ -118,7 +135,7 @@ $paul->deleteDatabase();
  */
 
 /**
- * 11.3 PROPERTIES IN INHERITANCE
+ * 11.3 PROPERTIES AND INHERITANCE
  */
 
 // Child classes inherit both METHODS (functions) and PROPERTIES (variables) from their ANCESTORS
@@ -127,7 +144,7 @@ $paul->deleteDatabase();
 // So far we've seen child classes that add new methods. But child classes can also add new properties.
 
 // Case in point:
-abstract class Animal { // IGNORE `abstract` FOR NOW...
+class Animal {
   public $genus;
   public $species;
 }
@@ -145,9 +162,9 @@ class Dog extends Mammal {
 
   public function bark() {
     if ($this->barkIsBiggerThanBite) {
-      echo 'WOOF!';
+      echo 'WOOF!' . PHP_EOL;
     } else {
-      echo '...You better run, man...';
+      echo '...You better run, man...' . PHP_EOL;
     }
   }
 }
@@ -157,66 +174,93 @@ $myDog = new Dog();
 $myDog->genus = 'Canine';
 $myDog->species = 'Scary';
 $myDog->barkIsBiggerThanBite = false;
-$myDog->bark();
+$myDog->bark(); // What will this print out? ANSWER:
 
 /**
- * PROBLEM 3
+ * PROBLEM 4
  *
  * Create a $kangaroo variable as a `new Mammal()` object. Try to set the
  * barkIsBiggerThanBite property on it -- what happens? Why?
  */
 
 /**
- * 11.4 ABSTRACT CLASSES
+ * 11.4 METHODS AND INHERITANCE
  */
 
-// Notice the `abstract` keyword above in the Animal class definition.
-// An abstract class cannot be instantiated. In other words, you can't make an object out of it.
+// Child classes can also add new methods that aren't inherited from the parent. For example:
+class Fruit {
+  public $name;
 
-/**
- * PROBLEM 4
- *
- * Try to make an Animal object directly and see what happens:
- */
-
-// The point of an abstract class is to put shared code in it, knowing this class will
-// have child classes that you'll use to make objects.
-
-// Sometimes it makes sense to allow someone to make objects out of a parent class.
-// But when it doesn't, we make it abstract.
-
-// Here's an example:
-abstract class Dice {
-  private $sides;
-
-  public function roll() {
-    return rand(1, $this->sides);
+  public function eat() {
+    echo 'Yum!';
   }
 }
 
-class SixSidedDie extends Dice {
-  private $sides = 6; // Notice we can override properties from any ancestor class
+class Apple {
+  public function dropOnIsaacNewtonsHead() {
+    echo 'Ouch!';
+  }
 }
-
-class TwelveSidedDie extends Dice {
-  private $sides = 12;
-}
-
-$rpgDie = new TwelveSidedDie();
-$rpgDie->roll(); // Will always return between 1 and 12
-
-$yahtzeeDie = new SixSidedDie();
-$yahtzeeDie->roll(); // Will always return between 1 and 6
 
 /**
  * PROBLEM 5
  *
- * *WARNING -- ADVANCED*
+ * Create a new Fruit object, and a new Apple object
+ * Try to call dropOnIsaacNewtonsHead() on each of these objects.
+ * Which will work? Which won't? Why not?
  *
- * Copy and paste below your HatOfNames class from section9.php
+ * ANSWER HERE:
+ */
+
+/**
+ * 11.5 OVERRIDING PROPERTIES AND METHODS
+ */
+
+// A child class can OVERRIDE its parent's properties and methods:
+
+// Well, just like we can override PROPERTIES and CONSTANTS, we can also override METHODS (functions)
+// of ancestor classes:
+class Ball {
+  public $color = 'It could be a lot of colors...';
+
+  function roll() {
+    echo 'The ball is rolling' . PHP_EOL;
+  }
+}
+
+class BeachBall extends Ball {
+  public $color = 'Red, white, blue, and yellow';
+
+  function roll() {
+    echo 'The beach ball is rolling, but it\'s slowing quickly' . PHP_EOL;
+  }
+}
+
+class BowlingBall extends Ball {
+  public $color = 'Black';
+
+  function roll() {
+    echo 'The bowling ball is rolling... it keeps going!' . PHP_EOL;
+  }
+}
+
+// Vocabulary note: Remember, Ball would be called a "parent" class and
+// BeachBall and Bowling ball would be called "child" classes of Ball
+
+/**
+ * PROBLEM 6
  *
- * Modify this code and split it up into 3 classes:
- *   - HatOfNames -- this will be an abstract parent class which contains all shared code
- *   - LockedHatOfNames -- this will be a HatOfNames where the winner is locked after picking one
- *   - ReusableHatOfNames -- this will be a HatOfNames where the winner is different every time pickWinner() is called
+ * Create a Ball object and a BeachBall object.
+ * Call roll() on both of them. Then echo out $color for both of them.
+ * What happens when you call roll() on the Ball object?
+ * What happens with the BeachBall object?
+ *
+ * ANSWER HERE:
+ */
+
+/**
+ * PROBLEM 7
+ *
+ * Use your imagination to come up with a parent and child class
+ * On the child class, override properties and methods from the parent class
  */

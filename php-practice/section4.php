@@ -84,35 +84,36 @@ $starCraft2->publisher = 'Electronic Arts'; // That would be bad!
  * QUESTION 1
  *
  * What are the 2 main things that you can create inside of a class?
- * ANSWER:
+ * ANSWER: property variables and the constructor
  */
 
 /**
  * QUESTION 2
  *
  * What keyword do you use in PHP to create an object from a class?
- * ANSWER:
+ * ANSWER: new
  */
 
 /**
  * QUESTION 3
  *
  * When you instantiate (create) a new object, which method (function) runs from its class?
- * ANSWER:
+ * ANSWER: __construct method
  */
 
 /**
  * QUESTION 4
  *
  * If the constructor is set up to take arguments, how or where do you specify which arguments to pass in?
- * ANSWER:
+ * ANSWER: I pass the arguments in the () next to the __construct keyword
  */
 
 /**
  * QUESTION 5
  *
  * How do you access a public property of an object?
- * ANSWER:
+ * ANSWER: We acess the public property of an object by echoing out the name of the varible (in this case $starCraft2) followed by -> and then the property we want to access 
+ * which would look like this - echo 'My favorite game is' . $starCraft2->title;
  */
 
 /**
@@ -127,6 +128,28 @@ $starCraft2->publisher = 'Electronic Arts'; // That would be bad!
  * for an example.)
  */
 
+echo PHP_EOL;
+
+class Novel {
+  public $title;
+  public $setting;
+  public $plot;
+
+  public function __construct($title, $setting, $plot) {
+    $this->title = $title;
+    $this->setting = $setting;
+    $this->plot = $plot;
+  }
+
+    public function writeSetting() {
+    echo 'This Setting is SUPER SyFy!'.PHP_EOL;
+  }
+
+  // This method simulates playing the 1-player campaign
+  public function writePlot() {
+    echo 'The Plot is entirely a word of Fiction.'.PHP_EOL;
+  }
+}
 /**
  * QUESTION 7
  *
@@ -134,3 +157,8 @@ $starCraft2->publisher = 'Electronic Arts'; // That would be bad!
  * and call all of its public methods.
  */
 
+$myBestSeller = new Novel('Graveyard of Dreams', 'SyFy', 'Fiction');
+
+
+$myBestSeller->writeSetting();
+$myBestSeller->writePlot();

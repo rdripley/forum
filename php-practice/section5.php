@@ -340,21 +340,15 @@ $welcomeEmailer->send();
  */
 
 class ShoppingCart {
-  private $item;
-  private $shoppingCart;
+  private $items = [];
 
-  $item = [
-    'name' => 'Pringles',
-    'cost' => 3.99
-  ];
-
-  public function addItem() {
-    $shoppingCart =  [];
-    $shoppingCart[] = array_push($item);
+  public function addItem($item) {
+    $this->$items[] = $item;
   }
 
   public function getItemCount() {
-    return $shoppingCart;
+    $ItemCount = count($items);
+      return $ItemCount;
   }
 
   public function getTotalCost() {

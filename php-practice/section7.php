@@ -29,6 +29,11 @@ $lengthOfMyName = strlen('Paul'); // This will equal 4, because 'Paul' is 4 char
  * Using strlen, echo out the length of your name
  */
 
+$nameLength = strlen('Russell');
+
+echo $nameLength;
+
+PHP_EOL;
 /**
  * PROBLEM 2
  *
@@ -36,6 +41,16 @@ $lengthOfMyName = strlen('Paul'); // This will equal 4, because 'Paul' is 4 char
  * ($string1 and $string2) and returns the combined length of both of them.
  */
 
+	function lengthOfStrings($string1, $string2) {
+		$combinedLength = strlen ($string1);
+
+		echo $combinedLength;
+	}
+
+lengthOfStrings('Paul', 'Russell');
+
+
+PHP_EOL;
 /**
  * substr() -- return part of a string
  */
@@ -61,6 +76,14 @@ $myFirstName = substr($string, 0, 4);
  */
 $crazyCase = 'i aM nOt LOwEr OR upPeR -- i\'M cRAZy CASe!';
 
+$upperCase = strtoupper($crazyCase);
+$lowerCase = strtolower($crazyCase);
+
+echo $upperCase.PHP_EOL;
+echo $lowerCase.PHP_EOL;
+
+PHP_EOL;
+
 /**
  * strpos() -- find the position of a substring within another string
  *
@@ -76,3 +99,15 @@ $crazyCase = 'i aM nOt LOwEr OR upPeR -- i\'M cRAZy CASe!';
  *
  * (It returns TRUE if $needle is a substring of $haystack; FALSE otherwise.)
  */
+
+function stringContains($haystack, $needle) {
+	$pos = strpos($haystack, $needle)
+
+		if ($pos === true) {
+			echo "I found '$needle' in this string '$haystck'";
+		} else {
+			echo "I couldn't find '$needle' anywhere";
+		}
+}
+
+stringContains('This is the string', 'This');

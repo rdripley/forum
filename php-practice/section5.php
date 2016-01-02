@@ -167,9 +167,26 @@ echo printLines(['Roses are red', 'Violets are blue', 'These are supposed to rhy
  * 5.4 USING FUNCTIONS IN CLASSES
  */
 
-// Classes can be used as tools. Here is a class that represents a "counter"
+// Classes can be used like a MACHINE.
+// Think about some simple machines that you know about. Like a remote control. You press a button,
+// and it sends a signal corresponding to that button.
+// It takes an input, and corresponds with an output.
 
+// Check out this really simple number clicker machine
+// https://youtu.be/OZZLhW4Ahho?t=25s
+// A doorman can use it to keep track of how many people walk into a room.
+
+// Here is one such "machine" class that represents a "number clicker"
+
+/**
+ * Class that holds the cound of something
+ */
 class Counter {
+  /**
+   * Current count
+   *
+   * @var integer
+   */
   private $count = 0; // Note, you can set a default value for properties like this
 
   /**
@@ -194,24 +211,28 @@ class Counter {
   }
 }
 
-// Watch it in use
-$myCounter = new Counter();
-$myCounter->increment();
-$myCounter->increment();
-$myCounter->increment();
-echo $myCounter->getCount(); // What should this print out? Answer:
+// Watch it in use. Perhaps we wanted to count the number of times the user clicked the mouse...
+
+$userClickedMouseCounter = new Counter();
+$userClickedMouseCounter->increment();
+$userClickedMouseCounter->increment();
+$userClickedMouseCounter->increment();
+echo $userClickedMouseCounter->getCount(); // What should this print out? Answer:
 echo PHP_EOL;
-$myCounter->reset();
-$myCounter->increment();
-echo $myCounter->getCount(); // What should this print out? Answer:
+$userClickedMouseCounter->reset();
+$userClickedMouseCounter->increment();
+echo $userClickedMouseCounter->getCount(); // What should this print out? Answer:
 echo PHP_EOL;
 
 /**
- * Here is another class that represents an "emailer". You "carry" it around in
+ * Here is another "Machine" class that represents an "emailer". You "carry" it around in
  * your code and populate it with a message to send, and you can add email addresses
  * to it as you discover all of the recipients that need to hear the message.
  */
 
+/**
+ * Class to send an email
+ */
 class Emailer {
   private $emailAddresses = [];
   private $message;
@@ -268,10 +289,10 @@ $welcomeEmailer->addEmailAddress('rasmus@lerdorf.com');
 // And let's send the emails!
 $welcomeEmailer->send();
 
-// See how that's kind of elegant? The Emailer object carries around the details of
-// what we're doing in a nice, encapsulated way. All of the details are in one place,
+// See how elegant that is? The Emailer object carries around the details of
+// what we're doing in a nice, encapsulated way -- like a real life machine. All of the details are in one place,
 // and once we add the message/subject or an email address, we don't have to worry about
-// remembering what we set it to. We just hit send() when we're ready.
+// remembering what we set it to. We just "hit" the send() "button" when we're ready.
 
 // Also, notice that we didn't expose any of the properties of this class as public, but it
 // was still able to do its job.

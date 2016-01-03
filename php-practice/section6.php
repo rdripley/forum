@@ -262,6 +262,7 @@ printErrors([
   'That should\'ve been a string, doofus'
 ]);
 
+printSectionSeparator();
 // Run the function below, passing an array of errors
 
 /**
@@ -269,10 +270,9 @@ printErrors([
  *
  * Now make the SAME printErrors function with a foreach loop!
  */
-
-function printErrorsAlternate(array $errors) {
-  $altErrors = array($errors);
-
+/**I'm going to need your help. I got this to work but I'm not sure why I didn't get the "string conversion error" I normally get.
+*/
+function printErrorsAlternate(array $altErrors) {
   foreach($altErrors as $value) {
     echo "Error: ".$value.PHP_EOL;
   }

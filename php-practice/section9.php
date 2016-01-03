@@ -21,6 +21,8 @@
  * Hint: in PHP, there is an M_PI constant that equals Pi.
  */
 
+echo round(M_PI);
+
 // <RANT ABOUT HOW TO READ PHP DOCS>
 
 /**
@@ -63,6 +65,11 @@
  * and returns a number between 1 and 6.
  */
 
+function rollDice($lowRoll, $highRoll) {
+	echo rand().PHP_EOL;
+}
+
+rollDice(1, 6);
 /**
  * PROBLEM 3
  *
@@ -70,6 +77,15 @@
  * that takes a single string parameter and returns a single random character from that string.
  */
 
+function returnRandomCharacter($stringParameter) {
+	echo substr($stringParameter, rand(0, strlen($stringParameter)-1)).PHP_EOL;
+/**I had to look this one up but it makes sense now. This is what I wanted it to do I just couldn't figure out
+the order. We want to echo a substr of the given string. But substr requires two parameters and one of those
+needs to be random. So I put the String as the 1st parameter and rand() as the 2nd. I don't understand
+the syntax of rand. Could you help me with that? */
+}
+
+returnRandomCharacter('Lotta love Little Lotti');
 /**
  * PROBLEM 4
  *
@@ -78,6 +94,16 @@
  * and randomly returns the name of a winner.
  */
 
+function drawNameFromHat($hat) {
+	echo array_rand($hat, 1);
+}
+
+drawNameFromHat ([
+	'Russ',
+	'Paul',
+	'John',
+	'Jacob',
+	'Hammy']).PHP_EOL;
 /**
  * PROBLEM 5
  *

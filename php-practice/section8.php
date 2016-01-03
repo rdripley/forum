@@ -55,6 +55,8 @@ printLine(US_CAPITOL);
  * Define a constant called BEST_VIDEO_GAME_EVER. Its value should be the best video game ever.
  */
 
+define('BEST_VIDEO_GAME_EVER', 'best video game ever');
+printline(BEST_VIDEO_GAME_EVER);
 /**
  * 8.3 WHEN TO USE CONSTANTS
  *
@@ -98,6 +100,14 @@ function printFavoriteCheeseProduct() {
  * within a function.
  */
 
+define('FAVORITE_FOOD', 'Burgers');
+
+function printFavoriteFood() {
+	echo FAVORITE_FOOD.PHP_EOL;
+}
+
+printFavoriteFood();
+
 /**
  * 8.5 SOMETIMES THE VALUE OF A CONSTANT DOESN'T MATTER
  *
@@ -111,12 +121,13 @@ define('GENDER_GIRL', 2);
 
 function printGender($gender) {
   if ($gender === GENDER_BOY) {
-    echo 'You are male';
+    echo 'You are male'.PHP_EOL;
   } else if ($gender === GENDER_GIRL) {
-    echo 'You are female';
+    echo 'You are female'.PHP_EOL;
   }
 }
 
+printGender(GENDER_BOY);
 // In this case, it doesn't mean anything that GENDER_BOY is 1. That's just a unique
 // value we give it so that we can create those two constants.
 
@@ -128,3 +139,19 @@ function printGender($gender) {
  *
  * Then create a function that takes a title and echos out a witty comment about that title.
  */
+
+define('Fellowship of the Ring', 1);
+define('Two Towers', 2);
+define('Return of the King', 3);
+
+function printComment($title) {
+	if($title === 'Fellowship of the Ring') {
+		echo 'An incredible start to a trilogy!'.PHP_EOL;
+	} elseif ($title === 'Two Towers') {
+		echo 'Wow! Makes you want to read the Final Book!'.PHP_EOL;
+	} else {
+		echo 'I can\'t believe it\'s over!'.PHP_EOL;
+	}
+}
+
+printComment('Two Towers');

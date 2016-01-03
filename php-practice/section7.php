@@ -31,9 +31,7 @@ $lengthOfMyName = strlen('Paul'); // This will equal 4, because 'Paul' is 4 char
 
 $nameLength = strlen('Russell');
 
-echo $nameLength;
-
-PHP_EOL;
+echo $nameLength.PHP_EOL;
 /**
  * PROBLEM 2
  *
@@ -42,10 +40,10 @@ PHP_EOL;
  */
 
 	function lengthOfStrings($string1, $string2) {
-		$combinedLength = strlen ($string1);
+		$combinedLength = ($string1.$string2);
 
-		echo $combinedLength;
-	}
+		echo strlen($combinedLength).PHP_EOL;
+};
 
 lengthOfStrings('Paul', 'Russell');
 
@@ -101,13 +99,13 @@ PHP_EOL;
  */
 
 function stringContains($haystack, $needle) {
-	$pos = strpos($haystack, $needle)
+	$pos = strpos($haystack, $needle);
 
-		if ($pos === true) {
-			echo "I found '$needle' in this string '$haystck'";
+		if ($pos == true) {
+			echo "TRUE";
 		} else {
-			echo "I couldn't find '$needle' anywhere";
+			echo "FALSE";
 		}
 }
 
-stringContains('This is the string', 'This');
+stringContains('This is the string', 'is');

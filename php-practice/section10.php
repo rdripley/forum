@@ -32,6 +32,13 @@ echo 'The make is ' . $myCar['make'] . PHP_EOL;
  *   - hasSequel (this will be a boolean value)
  */
 
+$movie = array (
+  'title' => 'Star Wars',
+  'leadCharacter' => 'Mark Hamill',
+  'hasSequel' => true
+);
+
+echo 'The title is '.$movie['title'].PHP_EOL;
 /**
  * 10.1 -- MULTI-DIMENSIONAL ARRAYS
  */
@@ -69,6 +76,12 @@ $cars = array(
  * and each "author" should have a `name` key and a `genre` key for whatever genre they write in.
  */
 
+$favoriteAuthor = array (
+  array('name' => 'C.S. Lewis', 'genre' => 'Fantasy'),
+  array('name' => 'J.R.R Tolkien', 'genre' => 'Fantasy'),
+  array('name' => 'Stephen King', 'genre' => 'Horror'),
+  array('name' => 'Neil Gaiman', 'genre' => 'Fantasy')
+);
 /**
  * PROBLEM 3
  *
@@ -76,6 +89,16 @@ $cars = array(
  * associative array with `name` and `genre` indexes) and loops over it, printing out the name of each other.
  */
 
+function authorName(array $favoriteAuthor) {
+      foreach ($favoriteAuthor as $x => $x_value) {
+      echo $x_value['name'];
+      echo PHP_EOL;
+    }
+}
+
+authorName($favoriteAuthor);
+/**I got this one to work; however, I don't understand why $x_value['name'] worked. I had assumed that $x[$x_value] would work and tried $x_value['name'] on a whim.
+Could you explain what the difference is?
 /**
  * 10.3 -- COLLECTIONS WITH REAL OBJECTS
  */

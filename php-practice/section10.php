@@ -76,7 +76,7 @@ $cars = array(
  * and each "author" should have a `name` key and a `genre` key for whatever genre they write in.
  */
 
-$favoriteAuthor = array (
+$favoriteAuthors = array (
   array('name' => 'C.S. Lewis', 'genre' => 'Fantasy'),
   array('name' => 'J.R.R Tolkien', 'genre' => 'Fantasy'),
   array('name' => 'Stephen King', 'genre' => 'Horror'),
@@ -89,9 +89,9 @@ $favoriteAuthor = array (
  * associative array with `name` and `genre` indexes) and loops over it, printing out the name of each other.
  */
 
-function authorName(array $favoriteAuthor) {
-      foreach ($favoriteAuthor as $x => $x_value) {
-      echo $x_value['name'];
+function printAuthorNames(array $favoriteAuthors) {
+      foreach ($favoriteAuthors as $author => $author_name) {
+      echo $author_name['name'];
       echo PHP_EOL;
     }
 }
@@ -157,3 +157,22 @@ echo $authors[0]->name; // Because $authors[0] is an Author object
  *
  * Then, create a collection of Race objects called $fantasyRaces
  */
+
+class Race {
+
+  public $fantasyRaces;
+
+  public $weapons;
+
+  public function __construct($race, $weapons) {
+    $this->race = $race;
+    $this->weapons = $weapons;
+  }
+}
+
+$fantasyRaces = [
+  new Race('Orcs', 'Ax'),
+  new Race('Humans', 'Broadsword'),
+  new Race('Ogres', 'Hammer'),
+  new Race ('Elves', 'Bow'),
+];

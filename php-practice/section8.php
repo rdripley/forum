@@ -140,18 +140,18 @@ printGender(GENDER_BOY);
  * Then create a function that takes a title and echos out a witty comment about that title.
  */
 
-define('Fellowship of the Ring', 1);
-define('Two Towers', 2);
-define('Return of the King', 3);
+define('FELLOWSHIP_OF_THE_RING', 1);
+define('TWO_TOWERS', 2);
+define('RETURN_OF_THE_KING', 3);
 
 function printComment($title) {
-	if($title === 'Fellowship of the Ring') {
+	if($title === FELLOWSHIP_OF_THE_RING) {
 		echo 'An incredible start to a trilogy!'.PHP_EOL;
-	} elseif ($title === 'Two Towers') {
+	} elseif ($title === TWO_TOWERS) {
 		echo 'Wow! Makes you want to read the Final Book!'.PHP_EOL;
 	} else {
 		echo 'I can\'t believe it\'s over!'.PHP_EOL;
 	}
 }
 
-printComment('Two Towers');
+printComment(RETURN_OF_THE_KING);

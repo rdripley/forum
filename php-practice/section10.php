@@ -162,7 +162,7 @@ class Race {
 
   public $fantasyRaces;
 
-  public $weapons;
+  public $weapons = [];
 
   public function __construct($race, $weapons) {
     $this->race = $race;
@@ -171,8 +171,12 @@ class Race {
 }
 
 $fantasyRaces = [
-  new Race('Orcs', 'Ax'),
-  new Race('Humans', 'Broadsword'),
-  new Race('Ogres', 'Hammer'),
-  new Race ('Elves', 'Bow'),
+  new Race('Race' => 'Orcs', 'Weapon' => 'Ax'),
+  new Race('Race' => 'Humans', 'Weapon' => 'Broadsword'),
+  new Race('Race' => 'Ogres', 'Weapon' => 'Hammer'),
+  new Race ('Race' => 'Elves', 'Weapon' => 'Bow'),
 ];
+
+$fantasyRaces['Bad_Guys'] = array('Ogres', 'Orcs');
+
+echo $fantasyRaces[0]->race;

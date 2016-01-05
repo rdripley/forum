@@ -347,10 +347,14 @@ class ShoppingCart {
   }
 
   public function getItemCount() {
-    $ItemCount = count($items);
+    $ItemCount = count($this->$items);
       return $ItemCount;
   }
 
   public function getTotalCost() {
   }
 }
+
+addItem ([
+  'name' => 'Pringles',
+  'cost' => 3.99]

@@ -40,9 +40,7 @@ echo $nameLength.PHP_EOL;
  */
 
 	function lengthOfStrings($string1, $string2) {
-		$combinedLength = ($string1.$string2);
-
-		echo strlen($combinedLength).PHP_EOL;
+		return strlen($string1.$string2);
 };
 
 lengthOfStrings('Paul', 'Russell');
@@ -102,10 +100,10 @@ function stringContains($haystack, $needle) {
 	$pos = strpos($haystack, $needle);
 
 		if ($pos == true) {
-			echo "TRUE";
+			return true;
 		} else {
-			echo "FALSE";
+			return false;
 		}
 }
 
-stringContains('This is the string', 'is');
+stringContains("This is the string", "ah");

@@ -307,6 +307,8 @@ $welcomeEmailer->addEmailAddress('rasmus@lerdorf.com');
 // And let's send the emails!
 $welcomeEmailer->send();
 
+echo PHP_EOL;
+
 // See how elegant that is? The Emailer object carries around the details of
 // what we're doing in a nice, encapsulated way -- like a real life machine. All of the details are in one place,
 // and once we add the message/subject or an email address, we don't have to worry about
@@ -343,18 +345,36 @@ class ShoppingCart {
   private $items = [];
 
   public function addItem($item) {
-    $this->$items[] = $item;
+    $this->items[] = $item;
   }
 
   public function getItemCount() {
-    $ItemCount = count($this->$items);
-      return $ItemCount;
+    return count($this->items);
   }
 
   public function getTotalCost() {
+    $totalCost = 0;
+
+    foreach($this->items as $item) {
+      $totalCost += $item['cost'];
+    }
+
+    return $totalCost;
   }
 }
 
-addItem ([
+$shoppingCart = new ShoppingCart();
+
+$shoppingCart->addItem ([
   'name' => 'Pringles',
-  'cost' => 3.99]
+  'cost' => 3.99]);
+
+$shoppingCart->addItem ([
+  'name' => 'Lays',
+  'cost' => 2.99]);
+
+echo $shoppingCart->getItemCount();
+
+echo PHP_EOL;
+
+echo $shoppingCart->getTotalCost();

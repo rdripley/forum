@@ -99,11 +99,11 @@ PHP_EOL;
 function stringContains($haystack, $needle) {
 	$pos = strpos($haystack, $needle);
 
-		if ($pos === false) {
-			return false;
-		} else {
-			return true;
-		}
+	if ($pos === false) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 var_dump(stringContains('donuts', 'don'));

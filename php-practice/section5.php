@@ -168,15 +168,13 @@ echo printLines(['Roses are red', 'Violets are blue', 'These are supposed to rhy
  * So if $min is 5 and $max is 10, it would print out: 5 6 7 8 9 10
  */
 
-    function getValuesBetween() {
-      $max = 10;
-
-      for ($min= 5; $min <= $max; $min++) {
+    function getValuesBetween($min, $max) {
+      for ($min; $min <= $max; $min++) {
         echo $min . PHP_EOL;
       }
 }
 
-echo getValuesBetween();
+echo getValuesBetween(5, 10);
 // ==========================================
 
 // Okay my turn again...

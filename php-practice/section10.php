@@ -32,6 +32,13 @@ echo 'The make is ' . $myCar['make'] . PHP_EOL;
  *   - hasSequel (this will be a boolean value)
  */
 
+$movie = array (
+  'title' => 'Star Wars',
+  'leadCharacter' => 'Mark Hamill',
+  'hasSequel' => true
+);
+
+echo 'The title is '.$movie['title'].PHP_EOL;
 /**
  * 10.1 -- MULTI-DIMENSIONAL ARRAYS
  */
@@ -69,6 +76,12 @@ $cars = array(
  * and each "author" should have a `name` key and a `genre` key for whatever genre they write in.
  */
 
+$favoriteAuthors = array (
+  array('name' => 'C.S. Lewis', 'genre' => 'Fantasy'),
+  array('name' => 'J.R.R Tolkien', 'genre' => 'Fantasy'),
+  array('name' => 'Stephen King', 'genre' => 'Horror'),
+  array('name' => 'Neil Gaiman', 'genre' => 'Fantasy')
+);
 /**
  * PROBLEM 3
  *
@@ -76,6 +89,16 @@ $cars = array(
  * associative array with `name` and `genre` indexes) and loops over it, printing out the name of each other.
  */
 
+function printAuthorNames(array $favoriteAuthors) {
+    foreach ($favoriteAuthors as $author) {
+      echo $author['name'];
+      echo PHP_EOL;
+    }
+}
+
+printAuthorNames($favoriteAuthors);
+/**I got this one to work; however, I don't understand why $x_value['name'] worked. I had assumed that $x[$x_value] would work and tried $x_value['name'] on a whim.
+Could you explain what the difference is?
 /**
  * 10.3 -- COLLECTIONS WITH REAL OBJECTS
  */
@@ -121,6 +144,7 @@ $authors = [
 // Now instead of printing out $authors[0]['name'], I'd print out...
 echo $authors[0]->name; // Because $authors[0] is an Author object
 
+echo PHP_EOL;
 /**
  * PROBLEM 4
  *
@@ -134,3 +158,34 @@ echo $authors[0]->name; // Because $authors[0] is an Author object
  *
  * Then, create a collection of Race objects called $fantasyRaces
  */
+
+class Race {
+
+  public $name;
+  public $weapons;
+  public $badGuys;
+
+
+  public function __construct($name, $weapons, $badGuys = FALSE) {
+    $this->name = $name;
+    $this->weapons = $weapons;
+    $this->badGuys = $badGuys;
+  }
+}
+
+$fantasyRaces = [
+  new Race('Orcs', 'Ax', TRUE),
+  new Race('Humans', 'Broadsword'),
+  new Race('Ogres', 'Hammer', TRUE),
+  new Race('Elves', 'Bow'),
+];
+
+echo $fantasyRaces[3]->name;
+
+echo PHP_EOL;
+
+echo $fantasyRaces[1]->weapons;
+
+echo PHP_EOL;
+
+echo $fantasyRaces[1]->badGuys;

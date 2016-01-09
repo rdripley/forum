@@ -96,7 +96,7 @@ function printAuthorNames(array $favoriteAuthors) {
     }
 }
 
-authorName($favoriteAuthor);
+printAuthorNames($favoriteAuthors);
 /**I got this one to work; however, I don't understand why $x_value['name'] worked. I had assumed that $x[$x_value] would work and tried $x_value['name'] on a whim.
 Could you explain what the difference is?
 /**
@@ -144,6 +144,7 @@ $authors = [
 // Now instead of printing out $authors[0]['name'], I'd print out...
 echo $authors[0]->name; // Because $authors[0] is an Author object
 
+echo PHP_EOL;
 /**
  * PROBLEM 4
  *
@@ -160,7 +161,7 @@ echo $authors[0]->name; // Because $authors[0] is an Author object
 
 class Race {
 
-  public $fantasyRaces;
+  public $race;
 
   public $weapons = [];
 
@@ -171,12 +172,20 @@ class Race {
 }
 
 $fantasyRaces = [
-  new Race('Race' => 'Orcs', 'Weapon' => 'Ax'),
-  new Race('Race' => 'Humans', 'Weapon' => 'Broadsword'),
-  new Race('Race' => 'Ogres', 'Weapon' => 'Hammer'),
-  new Race ('Race' => 'Elves', 'Weapon' => 'Bow'),
+  new Race('Orcs', 'Ax'),
+  new Race('Humans', 'Broadsword'),
+  new Race('Ogres', 'Hammer'),
+  new Race('Elves', 'Bow'),
 ];
 
 $fantasyRaces['Bad_Guys'] = array('Ogres', 'Orcs');
 
-echo $fantasyRaces[0]->race;
+echo $fantasyRaces[3]->race;
+
+echo PHP_EOL;
+
+echo $fantasyRaces[1]->weapons;
+
+echo PHP_EOL;
+
+echo $fantasyRaces['Bad_Guys'][0];

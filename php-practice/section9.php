@@ -23,6 +23,8 @@
 
 echo round(M_PI);
 
+echo PHP_EOL;
+
 // <RANT ABOUT HOW TO READ PHP DOCS>
 
 /**
@@ -66,10 +68,12 @@ echo round(M_PI);
  */
 
 function rollDice($lowRoll, $highRoll) {
-	echo rand().PHP_EOL;
+	return rand($lowRoll, $highRoll);
 }
 
-rollDice(1, 6);
+echo rollDice(1, 6);
+
+echo PHP_EOL;
 /**
  * PROBLEM 3
  *
@@ -78,14 +82,14 @@ rollDice(1, 6);
  */
 
 function returnRandomCharacter($stringParameter) {
-	echo substr($stringParameter, rand(0, strlen($stringParameter)-1)).PHP_EOL;
-/**I had to look this one up but it makes sense now. This is what I wanted it to do I just couldn't figure out
-the order. We want to echo a substr of the given string. But substr requires two parameters and one of those
-needs to be random. So I put the String as the 1st parameter and rand() as the 2nd. I don't understand
-the syntax of rand. Could you help me with that? */
+	$max = strlen($stringParameter) - 1;
+
+	return substr($stringParameter, rand(0, $max), 1);
 }
 
-returnRandomCharacter('Lotta love Little Lotti');
+echo returnRandomCharacter('short one');
+
+echo PHP_EOL;
 /**
  * PROBLEM 4
  *
@@ -94,16 +98,20 @@ returnRandomCharacter('Lotta love Little Lotti');
  * and randomly returns the name of a winner.
  */
 
-function drawNameFromHat($hat) {
-	echo array_rand($hat, 1);
+function drawNameFromHat(array $hat) {
+	$key = rand(0, count($hat) -1);
+
+	return $hat[$key];
 }
 
-drawNameFromHat ([
+echo drawNameFromHat ([
 	'Russ',
 	'Paul',
 	'John',
 	'Jacob',
-	'Hammy']).PHP_EOL;
+	'Hammy']);
+
+echo PHP_EOL;
 /**
  * PROBLEM 5
  *
@@ -117,6 +125,44 @@ drawNameFromHat ([
  * (Hint: What private properties does this class need to have? Do they need to have
  * a default value?)
  */
+
+class HatOfNames {
+	const MODE_RETAIN_WINNER = 1;
+	const MODE_NEW_WINNER_EVERY_TIME = 2;
+
+	private $names = [];
+	private $winner;
+	private $mode;
+
+	public function __construct($mode) {
+		$this->mode = $mode;
+	}
+
+	public function addName($name) {
+		$this->names[] = $name;
+	}
+
+	public function pickWinner() {
+		if ($this->mode === self::MODE_NEW_WINNER_EVERY_TIME || ($this->mode === self::MODE_RETAIN_WINNER && $this->winner === NULL)) {
+			$key = rand(0, count($this->names) -1);
+			$this->winner = $this->names[$key];
+		}
+
+		return $this->winner;
+	}
+}
+
+$HatOfNames = new HatOfNames(HatOfNames::MODE_RETAIN_WINNER);
+
+$HatOfNames->addName('Russ');
+$HatOfNames->addName('John');
+$HatOfNames->addName('Jacob');
+$HatOfNames->addName('JingleHiemer');
+
+echo $HatOfNames->pickWinner();
+echo $HatOfNames->pickWinner();
+echo $HatOfNames->pickWinner();
+echo $HatOfNames->pickWinner();
 
 /**
  * BONUS! PROBLEM 6

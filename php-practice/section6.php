@@ -251,7 +251,7 @@ printSectionSeparator();
 function printErrors(array $errors) {
   $count = count($errors);
 
-  for($i = 0; $i < $count; $i++) {
+  for($i = 0; $i <= $count; $i++) {
     echo "Error: ". $errors[$i].PHP_EOL;
   }
 }
@@ -272,8 +272,8 @@ printSectionSeparator();
  */
 /**I'm going to need your help. I got this to work but I'm not sure why I didn't get the "string conversion error" I normally get.
 */
-function printErrorsAlternate(array $altErrors) {
-  foreach($altErrors as $value) {
+function printErrorsAlternate(array $Errors) {
+  foreach($Errors as $error) {
     echo "Error: ".$value.PHP_EOL;
   }
 }

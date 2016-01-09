@@ -90,8 +90,8 @@ $favoriteAuthors = array (
  */
 
 function printAuthorNames(array $favoriteAuthors) {
-      foreach ($favoriteAuthors as $author => $author_name) {
-      echo $author_name['name'];
+    foreach ($favoriteAuthors as $author) {
+      echo $author['name'];
       echo PHP_EOL;
     }
 }
@@ -161,26 +161,26 @@ echo PHP_EOL;
 
 class Race {
 
-  public $race;
+  public $name;
+  public $weapons;
+  public $badGuys;
 
-  public $weapons = [];
 
-  public function __construct($race, $weapons) {
-    $this->race = $race;
+  public function __construct($name, $weapons, $badGuys = FALSE) {
+    $this->name = $name;
     $this->weapons = $weapons;
+    $this->badGuys = $badGuys;
   }
 }
 
 $fantasyRaces = [
-  new Race('Orcs', 'Ax'),
+  new Race('Orcs', 'Ax', TRUE),
   new Race('Humans', 'Broadsword'),
-  new Race('Ogres', 'Hammer'),
+  new Race('Ogres', 'Hammer', TRUE),
   new Race('Elves', 'Bow'),
 ];
 
-$fantasyRaces['Bad_Guys'] = array('Ogres', 'Orcs');
-
-echo $fantasyRaces[3]->race;
+echo $fantasyRaces[3]->name;
 
 echo PHP_EOL;
 
@@ -188,4 +188,4 @@ echo $fantasyRaces[1]->weapons;
 
 echo PHP_EOL;
 
-echo $fantasyRaces['Bad_Guys'][0];
+echo $fantasyRaces[1]->badGuys;

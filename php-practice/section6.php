@@ -272,8 +272,8 @@ printSectionSeparator();
  */
 /**I'm going to need your help. I got this to work but I'm not sure why I didn't get the "string conversion error" I normally get.
 */
-function printErrorsAlternate(array $Errors) {
-  foreach($Errors as $error) {
+function printErrorsAlternate(array $errors) {
+  foreach($errors as $error) {
     echo "Error: ".$value.PHP_EOL;
   }
 }

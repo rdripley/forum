@@ -122,9 +122,20 @@ printSectionSeparator();
  */
 
 function getSuperpower($superheroName) {
-  // YOUR CODE HERE
-}
+  if ($superheroName === 'Superman') {
+      return 'Super Strength';
+    } elseif ($superheroName === 'Green Lantern') {
+      return 'Magical Ring';
+    } else {
+      return 'None';
+    }
+  }
 
+echo getSuperpower('Superman').PHP_EOL;
+echo getSuperpower('Green Lantern').PHP_EOL;
+echo getSuperpower('Batman').PHP_EOL;
+
+printSectionSeparator();
 /**
  * PROBLEM 2
  *
@@ -132,9 +143,23 @@ function getSuperpower($superheroName) {
  */
 
 function getSuperpowerAlternate($superheroName) {
-  // YOUR CODE HERE
+  switch ($superheroName) {
+    case 'Superman':
+      return 'Super Strength';
+      break;
+    case 'Green Lantern':
+      return 'Magical Ring';
+    default:
+      return 'None';
+      break;
+  }
 }
 
+echo getSuperpower('Superman').PHP_EOL;
+echo getSuperpower('Green Lantern').PHP_EOL;
+echo getSuperpower('Batman').PHP_EOL;
+
+printSectionSeparator();
 /**
  * 6.3 FOR LOOPS
  */
@@ -151,7 +176,9 @@ function getTriangleNumber($x) {
   return $total;
 }
 
+echo getTriangleNumber(30).PHP_EOL;
 
+printSectionSeparator();
 /**
  * PROBLEM 3
  *
@@ -164,9 +191,18 @@ function getTriangleNumber($x) {
  * @return int
  */
 function sum1To100Evens() {
-  // YOUR CODE HERE
+  $value = 0;
+
+    for($i = 0; $i < 100; $i+=2) {
+      $value += $i;
+    }
+
+    return $value;
 }
 
+echo sum1To100Evens().PHP_EOL;
+
+printSectionSeparator();
 /**
  * 6.4 FOR LOOPS WITH ARRAYS
  */
@@ -213,9 +249,20 @@ printSectionSeparator();
  */
 
 function printErrors(array $errors) {
-  // YOUR CODE HERE
+  $count = count($errors);
+
+  for($i = 0; $i <= $count; $i++) {
+    echo "Error: ". $errors[$i].PHP_EOL;
+  }
 }
 
+printErrors([
+  'Syntax Error',
+  'Catachable Fatal Error',
+  'That should\'ve been a string, doofus'
+]);
+
+printSectionSeparator();
 // Run the function below, passing an array of errors
 
 /**
@@ -223,7 +270,18 @@ function printErrors(array $errors) {
  *
  * Now make the SAME printErrors function with a foreach loop!
  */
-
+/**I'm going to need your help. I got this to work but I'm not sure why I didn't get the "string conversion error" I normally get.
+*/
 function printErrorsAlternate(array $errors) {
-  // YOUR CODE HERE
+  foreach($errors as $error) {
+    echo "Error: ".$value.PHP_EOL;
+  }
 }
+
+printErrorsAlternate([
+  'Syntax Error',
+  'Catachable Fatal Error',
+  'That should\'ve been a string, doofus'
+]);
+
+printSectionSeparator();

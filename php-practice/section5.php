@@ -54,7 +54,9 @@ echo PHP_EOL;
  * Explain in your own words why the above 3 examples of code are effectively
  * the same exact code, written in different ways.
  *
- * ANSWER:
+ * ANSWER: The first example is a function followed by the call parameters while the third (the second being a busted out versino of the third) uses variables 
+ * to create the array and the function before calling it. All three use a function just in a different order, both use "echo" to call the function, and both define
+ * the array so it can be called.
  */
 
 // ==========================================
@@ -114,7 +116,11 @@ echo getSmallestValue(['Joseph', 'Paul', 'Andrew']) . PHP_EOL; // It works with 
  *
  * Explain in your own words how the above function works.
  *
- * ANSWER:
+ * ANSWER: first we name our function (in this case we give it the name getSmallestValue) followed by the parameters we want to pass.
+ * Inside the function, we first define what we want the function to do. In this case we want it to sort the given array. We use the PHp array sort function "sort"
+ * followed by the array we want it to sort "$arr". We then tell the function to "return $arr[0];" which is the value we want. We then print out that value
+ * using the "echo" keyword followed by the function name "getSmallestValue" then in () the array we want sorted. To make the printed value easier to read
+ * we concatenate the array with PHP_EOL so it prints the sorted value on another line.
  */
 
 // ==========================================
@@ -142,7 +148,11 @@ echo printLines(['Roses are red', 'Violets are blue', 'These are supposed to rhy
  *
  * Explain in your own words how the above function works.
  *
- * ANSWER:
+ * ANSWER: This function (called printLines) takes two parameters: the array and the variable $lines. We then use the foreach construct to loop through our array
+ * and print each value on its on line. The foreach loop takes our variable $lines and for each value in the array will place it in the $line each time. We also
+ * need to tell the foreach construct what we wnat it to do once it has placed the value in the variable $line. In this case, we want it to print out the value on its own line.
+ * Now that we have defined our function and construct, we pass the array values using "echo printLines" followed by the array values. We can pass multiple arrays which will all
+ * be printed on different lines.
  */
 
 // ==========================================
@@ -158,7 +168,13 @@ echo printLines(['Roses are red', 'Violets are blue', 'These are supposed to rhy
  * So if $min is 5 and $max is 10, it would print out: 5 6 7 8 9 10
  */
 
+function getValuesBetween($min, $max) {
+  for ($i = $min; $i <= $max; $i++) {
+    echo $i . PHP_EOL;
+  }
+}
 
+echo getValuesBetween(5, 10);
 // ==========================================
 
 // Okay my turn again...
@@ -179,7 +195,7 @@ echo printLines(['Roses are red', 'Violets are blue', 'These are supposed to rhy
 // Here is one such "machine" class that represents a "number clicker"
 
 /**
- * Class that holds the cound of something
+ * Class that holds the count of something
  */
 class Counter {
   /**
@@ -217,11 +233,11 @@ $userClickedMouseCounter = new Counter();
 $userClickedMouseCounter->increment();
 $userClickedMouseCounter->increment();
 $userClickedMouseCounter->increment();
-echo $userClickedMouseCounter->getCount(); // What should this print out? Answer:
+echo $userClickedMouseCounter->getCount(); // What should this print out? Answer: 3 (since we passed the increment function 3 times)
 echo PHP_EOL;
 $userClickedMouseCounter->reset();
 $userClickedMouseCounter->increment();
-echo $userClickedMouseCounter->getCount(); // What should this print out? Answer:
+echo $userClickedMouseCounter->getCount(); // What should this print out? Answer: 1 (since we reset the counter, passed a single increment, and then got the current count using the "getcount" function)
 echo PHP_EOL;
 
 /**
@@ -289,6 +305,8 @@ $welcomeEmailer->addEmailAddress('rasmus@lerdorf.com');
 // And let's send the emails!
 $welcomeEmailer->send();
 
+echo PHP_EOL;
+
 // See how elegant that is? The Emailer object carries around the details of
 // what we're doing in a nice, encapsulated way -- like a real life machine. All of the details are in one place,
 // and once we add the message/subject or an email address, we don't have to worry about
@@ -320,3 +338,41 @@ $welcomeEmailer->send();
  *   'cost' => 3.99
  * ];
  */
+
+class ShoppingCart {
+  private $items = [];
+
+  public function addItem($item) {
+    $this->items[] = $item;
+  }
+
+  public function getItemCount() {
+    return count($this->items);
+  }
+
+  public function getTotalCost() {
+    $totalCost = 0;
+
+    foreach($this->items as $item) {
+      $totalCost += $item['cost'];
+    }
+
+    return $totalCost;
+  }
+}
+
+$shoppingCart = new ShoppingCart();
+
+$shoppingCart->addItem ([
+  'name' => 'Pringles',
+  'cost' => 3.99]);
+
+$shoppingCart->addItem ([
+  'name' => 'Lays',
+  'cost' => 2.99]);
+
+echo $shoppingCart->getItemCount();
+
+echo PHP_EOL;
+
+echo $shoppingCart->getTotalCost();

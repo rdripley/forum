@@ -199,7 +199,7 @@ $myDog->bark(); // What will this print out? ANSWER: ...You better run, man... T
 
 $kangaroo = new Mammal();
 $kangaroo->barkIsBiggerThanBite = false;
-$kangaroo->bark();
+/*$kangaroo->bark();
 
 /**
  * 11.4 METHODS AND INHERITANCE
@@ -226,10 +226,20 @@ class Apple {
  * Create a new Fruit object, and a new Apple object
  * Try to call dropOnIsaacNewtonsHead() on each of these objects.
  * Which will work? Which won't? Why not?
- *
- * ANSWER HERE:
+ * ANSWER HERE: The $apple one will work because the function is inside
+ * the function dropOnIsaacNewtonsHead() is inside that class. The $fruit one won't because it can't access
+ * the dropOnIsaacNewtonsHead(). And Apple is not a child of Fruit.
  */
 
+$fruit = new Fruit();
+
+/*echo $fruit->dropOnIsaacNewtonsHead();*/
+
+$apple = new Apple();
+
+echo $apple->dropOnIsaacNewtonsHead();
+
+echo PHP_EOL;
 /**
  * 11.5 OVERRIDING PROPERTIES AND METHODS
  */
@@ -270,11 +280,19 @@ class BowlingBall extends Ball {
  *
  * Create a Ball object and a BeachBall object.
  * Call roll() on both of them. Then echo out $color for both of them.
- * What happens when you call roll() on the Ball object?
- * What happens with the BeachBall object?
+ * What happens when you call roll() on the Ball object? 
+ * What happens with the BeachBall object? 
+ * ANSWER HERE: 'The ball is rolling'&'The beach ball is rolling, but it\'s slowing quickly'
  *
- * ANSWER HERE:
  */
+
+$ball = new Ball();
+
+echo $ball->roll();
+
+$beachBall = new BeachBall();
+
+echo $beachBall->roll();
 
 /**
  * PROBLEM 7
@@ -282,3 +300,27 @@ class BowlingBall extends Ball {
  * Use your imagination to come up with a parent and child class
  * On the child class, override properties and methods from the parent class
  */
+
+class PapaSmurf {
+  public $color = 'Blue, of course';
+
+  function villian() {
+    echo 'Gargamel wants to capture the Smurfs' . PHP_EOL;
+  }
+}
+
+class Smurfette extends PapaSmurf {
+  public $color = 'Yes, we are blue but I am female';
+
+  function villian() {
+    echo 'Gargamel created Smurfette as a trap' . PHP_EOL;
+  }
+}
+
+$papaSmurf = new PapaSmurf();
+
+echo $papaSmurf->villian();
+
+$smurfette = new Smurfette();
+
+echo $smurfette->villian();

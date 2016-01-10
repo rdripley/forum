@@ -83,6 +83,12 @@ $someAdmin->deleteUser(1); // Notice this echos out the message!
  * Give it a method called accessFreeContent that echos out the message "Accessing free content!"
  */
 
+class FreeTierUser extends User {
+  public function accessFreeContent() {
+    echo 'Accessing free content! ' . PHP_EOL;
+  }
+}
+
 /**
  * PROBLEM 2
  *
@@ -91,6 +97,8 @@ $someAdmin->deleteUser(1); // Notice this echos out the message!
  *
  * Try it out below! (You can comment it out after trying so the file doesn't error.)
  */
+
+/*echo $someAdmin->accessFreeContent();
 
 /**
  * 11.2 MULTI-LEVEL INHERITANCE
@@ -134,6 +142,11 @@ $paul->deleteDatabase();
  * "Accessing premium content -- hey, I pay monthly for this ability!"
  */
 
+class PremiumUser extends FreeTierUser {
+    public function accessPremiumContent() {
+      echo "Accessing premium content -- hey, I pay monthly for this ability!";
+    }
+}
 /**
  * 11.3 PROPERTIES AND INHERITANCE
  */
@@ -174,14 +187,19 @@ $myDog = new Dog();
 $myDog->genus = 'Canine';
 $myDog->species = 'Scary';
 $myDog->barkIsBiggerThanBite = false;
-$myDog->bark(); // What will this print out? ANSWER:
+$myDog->bark(); // What will this print out? ANSWER: ...You better run, man... This is because we have barkIsBiggerThanBite set to False so when function bark() runs the if function runs it sees 
+                /* that $this->barkIsBiggerThanBite is false and goes to the else portion and echo out the string.
 
 /**
  * PROBLEM 4
  *
  * Create a $kangaroo variable as a `new Mammal()` object. Try to set the
- * barkIsBiggerThanBite property on it -- what happens? Why?
+ * barkIsBiggerThanBite property on it -- what happens? Why? When I tried it it said " Call to undefined method Mammal::bark()"
  */
+
+$kangaroo = new Mammal();
+$kangaroo->barkIsBiggerThanBite = false;
+$kangaroo->bark();
 
 /**
  * 11.4 METHODS AND INHERITANCE

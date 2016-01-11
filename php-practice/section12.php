@@ -84,7 +84,7 @@ class LittleSheeple extends BlackSheep {
 
 $littleSheepleObject = new LittleSheeple();
 $littleSheepleObject->callPunchLine();
-echo $littleSheepleObject->getSheeple();
+$littleSheepleObject->getSheeple();
 echo PHP_EOL;
 /**
  * 12.2 ABSTRACT CLASSES

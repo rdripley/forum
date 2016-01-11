@@ -194,12 +194,11 @@ $myDog->bark(); // What will this print out? ANSWER: ...You better run, man... T
  * PROBLEM 4
  *
  * Create a $kangaroo variable as a `new Mammal()` object. Try to set the
- * barkIsBiggerThanBite property on it -- what happens? Why? When I tried it it said " Call to undefined method Mammal::bark()"
+ * barkIsBiggerThanBite property on it -- what happens? Why?
  */
 
 $kangaroo = new Mammal();
-$kangaroo->barkIsBiggerThanBite = false;
-/*$kangaroo->bark();
+$kangaroo->barkIsBiggerThanBite = true;
 
 /**
  * 11.4 METHODS AND INHERITANCE
@@ -214,7 +213,7 @@ class Fruit {
   }
 }
 
-class Apple {
+class Apple extends Fruit {
   public function dropOnIsaacNewtonsHead() {
     echo 'Ouch!';
   }
@@ -288,11 +287,11 @@ class BowlingBall extends Ball {
 
 $ball = new Ball();
 
-echo $ball->roll();
+$ball->roll();
 
 $beachBall = new BeachBall();
 
-echo $beachBall->roll();
+$beachBall->roll();
 
 /**
  * PROBLEM 7
@@ -319,8 +318,8 @@ class Smurfette extends PapaSmurf {
 
 $papaSmurf = new PapaSmurf();
 
-echo $papaSmurf->villian();
+$papaSmurf->villian();
 
 $smurfette = new Smurfette();
 
-echo $smurfette->villian();
+$smurfette->villian();

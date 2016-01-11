@@ -56,6 +56,12 @@ echo SEPARATOR;
  * Let the PREFIX be "Error: " and specify it in a class constant called PREFIX.
  */
 
+class ErrorOutPutter {
+  const PREFIX = "Error: ";
+  public function outputError($error) {
+    echo self::PREFIX . $error;
+  }
+}
 // Note that class constants can be references without ever making an object out of the class.
 // You do this using the :: operator like this:
 echo TwelveSidedDie::SIDES; // Echos out 12 to the screen
@@ -67,6 +73,11 @@ echo SEPARATOR;
  * Echo out the PREFIX from your ErrorOutputter class
  */
 
+$errorOutputter = new ErrorOutputter();
+
+$errorOutputter->outputError('Syntax Error');
+
+echo SEPARATOR;
 /**
  * 13.2 TYPEHINTING
  */
@@ -96,9 +107,10 @@ function takePrimitives(int $foo, float $bar, bool $baz, string $qux) {
  * Try to call the takePrimitives function and pass it an int, float, bool, and string.
  * What happens?
  *
- * ANSWER:
+ * ANSWER: it gives me a fatal error. It says "must be an instance of int, integer given"
  */
 
+/*takePrimitives(1, 3.14, TRUE, 'this is a great string');
 
 // Why does this happen?
 // It happens because when you say int and float and bool and string, PHP assumes you are
@@ -143,6 +155,22 @@ takeDice($rpgDie);
  * of the parent class type and one of one of the child class types -- and echos
  * out something about them.
  */
+
+class GreatMovie {
+  public $greatMovie = 'Inception';
+}
+
+class BestMovie extends GreatMovie {
+  public $bestMovie = 'Star Wars Episode IV';
+}
+
+function pickMovie($greatMovie, $bestMovie) {
+  echo $greatMovie . 'isn\'t as good as' . $bestMovie;
+}
+
+$movieAnswer = new GreatMovie();
+
+$movieAnswer->pickMovie();
 
 /**
  * 13.3 INTERFACES

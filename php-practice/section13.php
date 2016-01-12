@@ -255,23 +255,32 @@ growPlant($birch);
  */
 
 interface ConsolePrinter {
-  public function printed($message);
+  public function checkMessage();
+  public function work($message);
 }
 
 class NotificationPrinter implements ConsolePrinter {
-  public function printed($message) {
+  public function checkMessage() {
+    echo 'Mike check 1, 2 , 1, 2.' . PHP_EOL;
+}
+
+  public function work($message) {
     echo "Notice: " . $message . PHP_EOL;
   }
 }
 
 class ErrorPrinter implements ConsolePrinter {
-  public function printed($message) {
+  public function checkMessage() {
+    echo 'Mike check 1, 2 , 1, 2.' . PHP_EOL;
+}
+
+  public function work($message) {
     echo "Error: " . $message . PHP_EOL;
   }
 }
 
 function printMessage(ConsolePrinter $consolePrinter) {
-  $consolePrinter->printed();
+  $consolePrinter->checkMessage();
 }
 
 $notificationMessage = new NotificationPrinter();
@@ -279,3 +288,7 @@ $errorMessage = new ErrorPrinter();
 
 printMessage($notificationMessage);
 printMessage($errorMessage);
+
+$notificationMessage->work('Issue with syntax');
+
+$errorMessage->work('You forgot the semicolon, ya dummy!');

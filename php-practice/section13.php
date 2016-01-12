@@ -170,8 +170,9 @@ function pickMovie($greatMovie, $bestMovie) {
 
 $movieAnswer = new GreatMovie();
 
-$movieAnswer->pickMovie();
+/*$movieAnswer->pickMovie();*/
 
+echo SEPARATOR;
 /**
  * 13.3 INTERFACES
  */
@@ -221,7 +222,7 @@ class Tree implements Plant {
  * Try removing $gallons from `public function water($gallons)` above.
  * What happens? Why do you think that happens?
  *
- * ANSWER HERE:
+ * ANSWER HERE: I get the error "Fatal error: Declaration of Tree::water() must be compatible with Plant::water($gallons)". I think it happens because "Tree::water()" is dependent on "Plant::water".
  */
 
 // So... why use interfaces?
@@ -252,3 +253,29 @@ growPlant($birch);
  * interface. For each class, let the print() method echo out the message prefixed
  * with a fitting prefix. (e.g. "Notice: " and "Error: ")
  */
+
+interface ConsolePrinter {
+  public function printed($message);
+}
+
+class NotificationPrinter implements ConsolePrinter {
+  public function printed($message) {
+    echo "Notice: " . $message . PHP_EOL;
+  }
+}
+
+class ErrorPrinter implements ConsolePrinter {
+  public function printed($message) {
+    echo "Error: " . $message . PHP_EOL;
+  }
+}
+
+function printMessage(ConsolePrinter $consolePrinter) {
+  $consolePrinter->printed();
+}
+
+$notificationMessage = new NotificationPrinter();
+$errorMessage = new ErrorPrinter();
+
+printMessage($notificationMessage);
+printMessage($errorMessage);

@@ -56,6 +56,12 @@ echo SEPARATOR;
  * Let the PREFIX be "Error: " and specify it in a class constant called PREFIX.
  */
 
+class ErrorOutPutter {
+  const PREFIX = "Error: ";
+  public function outputError($error) {
+    echo self::PREFIX . $error;
+  }
+}
 // Note that class constants can be references without ever making an object out of the class.
 // You do this using the :: operator like this:
 echo TwelveSidedDie::SIDES; // Echos out 12 to the screen
@@ -67,6 +73,11 @@ echo SEPARATOR;
  * Echo out the PREFIX from your ErrorOutputter class
  */
 
+$errorOutputter = new ErrorOutputter();
+
+echo ErrorOutputter::PREFIX;
+
+echo SEPARATOR;
 /**
  * 13.2 TYPEHINTING
  */
@@ -96,9 +107,10 @@ function takePrimitives(int $foo, float $bar, bool $baz, string $qux) {
  * Try to call the takePrimitives function and pass it an int, float, bool, and string.
  * What happens?
  *
- * ANSWER:
+ * ANSWER: it gives me a fatal error. It says "must be an instance of int, integer given"
  */
 
+/*takePrimitives(1, 3.14, TRUE, 'this is a great string');
 
 // Why does this happen?
 // It happens because when you say int and float and bool and string, PHP assumes you are
@@ -144,6 +156,24 @@ takeDice($rpgDie);
  * out something about them.
  */
 
+class GreatMovie {
+  public $title = 'Inception';
+}
+
+class BestMovie extends GreatMovie {
+  public $title = 'Star Wars Episode IV';
+}
+
+function pickMovie(GreatMovie $greatMovie, BestMovie $bestMovie) {
+  echo $greatMovie->title . ' isn\'t as good as ' . $bestMovie->title;
+}
+
+$movieAnswer = new GreatMovie();
+$secondAnswer = new BestMovie();
+
+pickMovie($movieAnswer, $secondAnswer);
+
+echo SEPARATOR;
 /**
  * 13.3 INTERFACES
  */
@@ -193,7 +223,7 @@ class Tree implements Plant {
  * Try removing $gallons from `public function water($gallons)` above.
  * What happens? Why do you think that happens?
  *
- * ANSWER HERE:
+ * ANSWER HERE: I get the error "Fatal error: Declaration of Tree::water() must be compatible with Plant::water($gallons)". I think it happens because "Tree::water()" is dependent on "Plant::water".
  */
 
 // So... why use interfaces?
@@ -224,3 +254,26 @@ growPlant($birch);
  * interface. For each class, let the print() method echo out the message prefixed
  * with a fitting prefix. (e.g. "Notice: " and "Error: ")
  */
+
+interface ConsolePrinter {
+  public function printMessage($message);
+}
+
+class NotificationPrinter implements ConsolePrinter {
+  public function printMessage($message) {
+    echo "Notice: " . $message . PHP_EOL;
+  }
+}
+
+class ErrorPrinter implements ConsolePrinter {
+  public function printMessage($message) {
+    echo "Error: " . $message . PHP_EOL;
+  }
+}
+
+$notificationPrinter = new NotificationPrinter();
+$errorPrinter = new ErrorPrinter();
+
+$notificationPrinter->printMessage('Issue with syntax');
+
+$errorPrinter->printMessage('You forgot the semicolon, ya dummy!');

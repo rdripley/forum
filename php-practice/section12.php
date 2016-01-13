@@ -53,7 +53,7 @@ echo PHP_EOL;
  * Temporarily change the FooParent class to make $bar and baz() private instead of protected.
  * What happens, and why?
  *
- * ANSWER HERE:
+ * ANSWER HERE: it returns this error "Fatal error: Call to private method FooParent::baz() from context 'FooChild'". Because as you said, child classes can't access private properties.
  */
 
 /**
@@ -64,6 +64,28 @@ echo PHP_EOL;
  * In the child class, access the parent's protected properties and methods.
  */
 
+class BlackSheep {
+  protected $sheeple = 'People but sheep (iz a joke)';
+
+  protected function punchLine() {
+    echo 'Imagine all the sheeple!' . PHP_EOL;
+  }
+}
+
+class LittleSheeple extends BlackSheep {
+  public function callPunchLine() {
+    $this->punchLine();
+  }
+
+  public function getSheeple() {
+    return $this->sheeple;
+  }
+}
+
+$littleSheepleObject = new LittleSheeple();
+$littleSheepleObject->callPunchLine();
+$littleSheepleObject->getSheeple();
+echo PHP_EOL;
 /**
  * 12.2 ABSTRACT CLASSES
  */
@@ -87,9 +109,13 @@ abstract class SomeAbstractClass {
  * Try to make a new SomeAbstractClass object and see what happens.
  * Explain in your own words, why did that happen?
  *
- * ANSWER HERE:
+ * ANSWER HERE: When I try to call someMethod I get the error "Fatal error: Cannot instantiate abstract class SomeAbstractClass". The reason is
+ * as you stated I can't "instantiate" the someMethod class. So that means I can't call it using echo $someAbstractObject->someMethod();
  */
 
+/*$someAbstractObject = new SomeAbstractClass();
+*
+*echo $someAbstractObject->someMethod();*/
 // The SomeAbstractClass is useless without any children. Let's make a child class:
 class NotAbstract extends SomeAbstractClass {
   public function someOtherMethod() {
@@ -103,8 +129,14 @@ class NotAbstract extends SomeAbstractClass {
  * Make a new NotAbstract object and try to run both the someMethod() and someOtherMethod() methods.
  * Did it work without breaking? Explain, why or why not did it work?
  *
- * ANSWER HERE:
+ * ANSWER HERE: I could use $someAbstractObject (my created variable) to call both the abstract Parent class AND the child class.
  */
+
+$notAbstractObject = new NotAbstract();
+
+echo $notAbstractObject->someOtherMethod();
+
+echo $notAbstractObject->someMethod();
 
 // Sometimes it makes sense to allow someone to make objects out of a parent class.
 // But when it doesn't, we make it abstract.
@@ -144,6 +176,29 @@ echo PHP_EOL;
  * in the parent that is used by both children.
  */
 
+abstract class Heroes {
+  public $hero;
+  
+  public function chooseHero() {
+    echo 'You chose a ' . $this->hero;
+  }
+}
+
+class SupportOnly extends Heroes {
+  public $hero = 'Support';
+}
+
+class SpecialistOnly extends Heroes {
+  public $hero = 'Specialist';
+}
+
+$heroSelect = new SupportOnly();
+echo $heroSelect->chooseHero();
+echo PHP_EOL;
+
+$althero = new SpecialistOnly();
+echo $althero->chooseHero();
+echo PHP_EOL;
 /**
  * PROBLEM 6
  *
@@ -159,3 +214,46 @@ echo PHP_EOL;
  * HINT: What shared methods or properties need to be in the parent HatOfNames class?
  * HINT: What visibility do these shared methods and properties need? (public, private, or protected?)
  */
+
+abstract class HatOfNames {
+  protected $names = [];
+
+  protected function getNewWinner() {
+    $key = rand(0, count($this->names) -1);
+    return $this->names[$key];
+  }
+
+  public function addName($name) {
+    $this->names[] = $name;
+  }
+}
+
+class LockedHatOfNames extends HatOfNames {
+  private $winner;
+
+  public function pickWinner() {
+    if ($this->winner === NULL) {
+      $this->winner = $this->getNewWinner();
+    }
+
+    return $this->winner;
+  }
+}
+
+class ReusableHatOfNames extends HatOfNames {
+  public function pickWinner() {
+    return $this->getNewWinner();
+  }
+}
+
+$hatOfNames = new LockedHatOfNames();
+
+$hatOfNames->addName('Russ');
+$hatOfNames->addName('John');
+$hatOfNames->addName('Jacob');
+$hatOfNames->addName('JingleHiemer');
+
+echo $hatOfNames->pickWinner();
+echo $hatOfNames->pickWinner();
+echo $hatOfNames->pickWinner();
+echo $hatOfNames->pickWinner();

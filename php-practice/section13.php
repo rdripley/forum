@@ -75,7 +75,7 @@ echo SEPARATOR;
 
 $errorOutputter = new ErrorOutputter();
 
-$errorOutputter->outputError('Syntax Error');
+echo ErrorOutputter::PREFIX;
 
 echo SEPARATOR;
 /**
@@ -157,20 +157,21 @@ takeDice($rpgDie);
  */
 
 class GreatMovie {
-  public $greatMovie = 'Inception';
+  public $title = 'Inception';
 }
 
 class BestMovie extends GreatMovie {
-  public $bestMovie = 'Star Wars Episode IV';
+  public $title = 'Star Wars Episode IV';
 }
 
-function pickMovie($greatMovie, $bestMovie) {
-  echo $greatMovie . 'isn\'t as good as' . $bestMovie;
+function pickMovie(GreatMovie $greatMovie, BestMovie $bestMovie) {
+  echo $greatMovie->title . ' isn\'t as good as ' . $bestMovie->title;
 }
 
 $movieAnswer = new GreatMovie();
+$secondAnswer = new BestMovie();
 
-/*$movieAnswer->pickMovie();*/
+pickMovie($movieAnswer, $secondAnswer);
 
 echo SEPARATOR;
 /**
@@ -255,40 +256,24 @@ growPlant($birch);
  */
 
 interface ConsolePrinter {
-  public function checkMessage();
-  public function work($message);
+  public function printMessage($message);
 }
 
 class NotificationPrinter implements ConsolePrinter {
-  public function checkMessage() {
-    echo 'Mike check 1, 2 , 1, 2.' . PHP_EOL;
-}
-
-  public function work($message) {
+  public function printMessage($message) {
     echo "Notice: " . $message . PHP_EOL;
   }
 }
 
 class ErrorPrinter implements ConsolePrinter {
-  public function checkMessage() {
-    echo 'Mike check 1, 2 , 1, 2.' . PHP_EOL;
-}
-
-  public function work($message) {
+  public function printMessage($message) {
     echo "Error: " . $message . PHP_EOL;
   }
 }
 
-function printMessage(ConsolePrinter $consolePrinter) {
-  $consolePrinter->checkMessage();
-}
+$notificationPrinter = new NotificationPrinter();
+$errorPrinter = new ErrorPrinter();
 
-$notificationMessage = new NotificationPrinter();
-$errorMessage = new ErrorPrinter();
+$notificationPrinter->printMessage('Issue with syntax');
 
-printMessage($notificationMessage);
-printMessage($errorMessage);
-
-$notificationMessage->work('Issue with syntax');
-
-$errorMessage->work('You forgot the semicolon, ya dummy!');
+$errorPrinter->printMessage('You forgot the semicolon, ya dummy!');

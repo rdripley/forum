@@ -216,15 +216,11 @@ echo PHP_EOL;
  */
 
 abstract class HatOfNames {
-  const MODE_RETAIN_WINNER = 1;
-  const MODE_NEW_WINNER_EVERY_TIME = 2;
-
   protected $names = [];
-  protected $winner;
-  protected $mode;
 
-  public function __construct($mode) {
-    $this->mode = $mode;
+  protected function getNewWinner() {
+    $key = rand(0, count($this->names) -1);
+    return $this->names[$key];
   }
 
   public function addName($name) {
@@ -233,10 +229,11 @@ abstract class HatOfNames {
 }
 
 class LockedHatOfNames extends HatOfNames {
+  private $winner;
+
   public function pickWinner() {
-    if ($this->mode === (self::MODE_RETAIN_WINNER && $this->winner === NULL)) {
-      $key = rand(0, count($this->names) -1);
-      $this->winner = $this->names[$key];
+    if ($this->winner === NULL) {
+      $this->winner = $this->getNewWinner();
     }
 
     return $this->winner;
@@ -245,23 +242,18 @@ class LockedHatOfNames extends HatOfNames {
 
 class ReusableHatOfNames extends HatOfNames {
   public function pickWinner() {
-    if ($this->mode === self::MODE_NEW_WINNER_EVERY_TIME) {
-      $key = rand(0, count($this->names) -1);
-      $this->winner = $this->names[$key];
-    }
-
-    return $this->winner;
+    return $this->getNewWinner();
   }
 }
 
-$runPickWinner = new LockedHatOfNames(LockedHatOfNames::MODE_RETAIN_WINNER);
+$hatOfNames = new LockedHatOfNames();
 
-$runPickWinner->addName('Russ');
-$runPickWinner->addName('John');
-$runPickWinner->addName('Jacob');
-$runPickWinner->addName('JingleHiemer');
+$hatOfNames->addName('Russ');
+$hatOfNames->addName('John');
+$hatOfNames->addName('Jacob');
+$hatOfNames->addName('JingleHiemer');
 
-echo $runPickWinner->pickWinner();
-echo $runPickWinner->pickWinner();
-echo $runPickWinner->pickWinner();
-echo $runPickWinner->pickWinner();
+echo $hatOfNames->pickWinner();
+echo $hatOfNames->pickWinner();
+echo $hatOfNames->pickWinner();
+echo $hatOfNames->pickWinner();

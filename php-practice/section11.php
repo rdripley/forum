@@ -83,6 +83,12 @@ $someAdmin->deleteUser(1); // Notice this echos out the message!
  * Give it a method called accessFreeContent that echos out the message "Accessing free content!"
  */
 
+class FreeTierUser extends User {
+  public function accessFreeContent() {
+    echo 'Accessing free content! ' . PHP_EOL;
+  }
+}
+
 /**
  * PROBLEM 2
  *
@@ -91,6 +97,8 @@ $someAdmin->deleteUser(1); // Notice this echos out the message!
  *
  * Try it out below! (You can comment it out after trying so the file doesn't error.)
  */
+
+/*echo $someAdmin->accessFreeContent();
 
 /**
  * 11.2 MULTI-LEVEL INHERITANCE
@@ -134,6 +142,11 @@ $paul->deleteDatabase();
  * "Accessing premium content -- hey, I pay monthly for this ability!"
  */
 
+class PremiumUser extends FreeTierUser {
+    public function accessPremiumContent() {
+      echo "Accessing premium content -- hey, I pay monthly for this ability!";
+    }
+}
 /**
  * 11.3 PROPERTIES AND INHERITANCE
  */
@@ -174,7 +187,8 @@ $myDog = new Dog();
 $myDog->genus = 'Canine';
 $myDog->species = 'Scary';
 $myDog->barkIsBiggerThanBite = false;
-$myDog->bark(); // What will this print out? ANSWER:
+$myDog->bark(); // What will this print out? ANSWER: ...You better run, man... This is because we have barkIsBiggerThanBite set to False so when function bark() runs the if function runs it sees 
+                /* that $this->barkIsBiggerThanBite is false and goes to the else portion and echo out the string.
 
 /**
  * PROBLEM 4
@@ -182,6 +196,9 @@ $myDog->bark(); // What will this print out? ANSWER:
  * Create a $kangaroo variable as a `new Mammal()` object. Try to set the
  * barkIsBiggerThanBite property on it -- what happens? Why?
  */
+
+$kangaroo = new Mammal();
+$kangaroo->barkIsBiggerThanBite = true;
 
 /**
  * 11.4 METHODS AND INHERITANCE
@@ -196,7 +213,7 @@ class Fruit {
   }
 }
 
-class Apple {
+class Apple extends Fruit {
   public function dropOnIsaacNewtonsHead() {
     echo 'Ouch!';
   }
@@ -208,10 +225,20 @@ class Apple {
  * Create a new Fruit object, and a new Apple object
  * Try to call dropOnIsaacNewtonsHead() on each of these objects.
  * Which will work? Which won't? Why not?
- *
- * ANSWER HERE:
+ * ANSWER HERE: The $apple one will work because the function is inside
+ * the function dropOnIsaacNewtonsHead() is inside that class. The $fruit one won't because it can't access
+ * the dropOnIsaacNewtonsHead(). And Apple is not a child of Fruit.
  */
 
+$fruit = new Fruit();
+
+/*echo $fruit->dropOnIsaacNewtonsHead();*/
+
+$apple = new Apple();
+
+echo $apple->dropOnIsaacNewtonsHead();
+
+echo PHP_EOL;
 /**
  * 11.5 OVERRIDING PROPERTIES AND METHODS
  */
@@ -252,11 +279,19 @@ class BowlingBall extends Ball {
  *
  * Create a Ball object and a BeachBall object.
  * Call roll() on both of them. Then echo out $color for both of them.
- * What happens when you call roll() on the Ball object?
- * What happens with the BeachBall object?
+ * What happens when you call roll() on the Ball object? 
+ * What happens with the BeachBall object? 
+ * ANSWER HERE: 'The ball is rolling'&'The beach ball is rolling, but it\'s slowing quickly'
  *
- * ANSWER HERE:
  */
+
+$ball = new Ball();
+
+$ball->roll();
+
+$beachBall = new BeachBall();
+
+$beachBall->roll();
 
 /**
  * PROBLEM 7
@@ -264,3 +299,27 @@ class BowlingBall extends Ball {
  * Use your imagination to come up with a parent and child class
  * On the child class, override properties and methods from the parent class
  */
+
+class PapaSmurf {
+  public $color = 'Blue, of course';
+
+  function printMessage() {
+    echo 'Gargamel wants to capture the Smurfs' . PHP_EOL;
+  }
+}
+
+class Smurfette extends PapaSmurf {
+  public $color = 'Yes, we are blue but I am female';
+
+  function printMessage() {
+    echo 'Gargamel created Smurfette as a trap' . PHP_EOL;
+  }
+}
+
+$papaSmurf = new PapaSmurf();
+
+$papaSmurf->printMessage();
+
+$smurfette = new Smurfette();
+
+$smurfette->printMessage();

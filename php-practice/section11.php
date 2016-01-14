@@ -303,7 +303,7 @@ $beachBall->roll();
 class PapaSmurf {
   public $color = 'Blue, of course';
 
-  function villian() {
+  function printMessage() {
     echo 'Gargamel wants to capture the Smurfs' . PHP_EOL;
   }
 }
@@ -311,15 +311,15 @@ class PapaSmurf {
 class Smurfette extends PapaSmurf {
   public $color = 'Yes, we are blue but I am female';
 
-  function villian() {
+  function printMessage() {
     echo 'Gargamel created Smurfette as a trap' . PHP_EOL;
   }
 }
 
 $papaSmurf = new PapaSmurf();
 
-$papaSmurf->villian();
+$papaSmurf->printMessage();
 
 $smurfette = new Smurfette();
 
-$smurfette->villian();
+$smurfette->printMessage();

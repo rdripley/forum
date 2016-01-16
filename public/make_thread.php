@@ -13,7 +13,8 @@ if (formIsBeingSubmitted()) {
 
 	$db = new Database();
 	$db->query("INSERT INTO threads (title, author_id) VALUES (\"$title\", \"$authorId\")");
-	$db->query("INSERT INTO posts (author_id, content, date) VALUES (\"$authorId\", \"$content\", \"$date\")");
+	$threadId = $db->getLastInsertedId();
+	$db->query("INSERT INTO posts (author_id, content, thread_id, date) VALUES (\"$authorId\", \"$content\", \"$threadId\" ,\"$date\")");
 
 	header("Location: http://rdripley.com/forum");
 }
@@ -29,7 +30,7 @@ if (formIsBeingSubmitted()) {
 <form action="make_thread.php" method="post">
 	<p>
 		Title:
-		<input placeholder="Some cool title">
+		<input name="title" placeholder="Some cool title">
 	</p>
 
 	<hr>

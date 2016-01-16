@@ -1,13 +1,10 @@
 <?php
 
-require('database.php');
+require('init_form.php');
 
 session_start();
 
-$requestMethod = $_SERVER['REQUEST_METHOD'];
-$formIsBeingSubmitted = $requestMethod === 'POST';
-
-if ($formIsBeingSubmitted) {
+if (formIsBeingSubmitted()) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
@@ -15,6 +12,8 @@ if ($formIsBeingSubmitted) {
 	$db->query("INSERT INTO users (username, password) VALUES (\"$username\", \"$password\")");
 
 	$_SESSION['user'] = $username;
+	$_SESSION['user_id'] = $db->getLastInsertedId();
+
 	header("Location: http://rdripley.com/forum");
 }
 

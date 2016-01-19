@@ -27,6 +27,8 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 1: Print out the string "I'm ready for some PHP!" to the console
 // =======================================================================
 
+echo "I am ready for some php";
+
 /**
  * Part 2: Variables
  *
@@ -39,6 +41,10 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 2: Create a variable called $monthsInYear and assign it the number of months in the year.
 // Then print it out to the console.
 // =======================================================================
+
+$monthsInYear = "12";
+
+echo "$monthsInYear";
 
 /**
  * Part 3: Variable Types
@@ -56,7 +62,13 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 3: Create 4 different variables, one of each of the basic types. Name them whatever you want.
 // =======================================================================
 
-// Code here:
+// Code here: 
+
+$string = "hi Paul";
+$integer = 10;
+$float = 3.14;
+$boolean = true;
+
 
 
 echo "\n"; // Leave this before the next problem to move to the next line...
@@ -83,6 +95,8 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 5: Create a variable called $myArray and set it to an array that contains an integer, a boolean, a float, and a string
 // =======================================================================
 
+$myArray = ["Bob Ross", 102, 3.14, true];
+
 /**
  * VOCABULARY: The things inside an array are called the array's "elements"
  *
@@ -107,6 +121,7 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 6: Take $myArray from problem 4 and echo out the second element to the console
 // =======================================================================
 
+echo $myArray[1];
 /**
  * You can also set a single array element using bracket syntax:
  *
@@ -118,6 +133,10 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // =======================================================================
 // PROBLEM 7: Add a fifth element to $myArray -- a value of "I am Russell and I eat arrays for breakfast"
 // =======================================================================
+
+$myArray = ["Bob Ross", 102, 3.14, true];
+
+$myArray[4] =  "I am Russell and I eat arrays for breakfast";
 
 /**
  * You can print out an entire array with the native PHP print_r() function like this:
@@ -132,6 +151,12 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // PROBLEM 8: Print out $myArray from PROBLEM 6
 // =======================================================================
 
+$myArray = ["Bob Ross", 102, 3.14, true];
+
+$myArray[4] =  "I am Russell and I eat arrays for breakfast";
+
+print_r($myArray);
+
 /**
  * You can remove elements from an array with the native PHP unset() function like this:
  *
@@ -143,6 +168,14 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // =======================================================================
 // PROBLEM 9: Remove element 2 from $myArray and then print out the array.
 // =======================================================================
+
+$myArray = ["Bob Ross", 102, 3.14, true];
+
+$myArray[4] =  "I am Russell and I eat arrays for breakfast";
+
+unset($myArray[2]);
+
+print_r($myArray);
 
 /**
  * Part 5: Associative Arrays
@@ -172,12 +205,30 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // It should have an element with index 'fallingToItsDeath' and value false
 // =======================================================================
 
+$myAssocArray = [
+	'id' => 5, 
+	'color' => 'white',
+	'fallingToItsDeath' => false
+	];
+
+print_r($myAssocArray);
+
 echo "\n"; // Leave this before the next problem to move to the next line...
 
 // =======================================================================
 // PROBLEM 11: Add an element to $myAssocArray at index 'rhinosEndangered' with a value of true. Then print out the array.
 // (Hint: The syntax is sort of similar to PROBLEM 6)
 // =======================================================================
+
+$myAssocArray = [
+	'id' => 5, 
+	'color' => 'white',
+	'fallingToItsDeath' => false
+	];
+
+$myAssocArray['rhinosEndangered'] = true;
+
+print_r($myAssocArray);
 
 echo "\n"; // Leave this before the next problem to move to the next line...
 
@@ -186,12 +237,34 @@ echo "\n"; // Leave this before the next problem to move to the next line...
 // =======================================================================
 
 
+$myAssocArray = [
+	'id' => 5, 
+	'color' => 'white',
+	'fallingToItsDeath' => false,
+	'rhinosEndangered' => true
+	];
+
+	unset($myAssocArray['color']);
+
+	print_r($myAssocArray);
+
 echo "\n"; // Leave this before the next problem to move to the next line...
 
 // =======================================================================
 // PROBLEM 13: Add an element at index 'ID' to $myAssocArray and print out the array.
 // Does the element at index 'id' get overwritten? What does that tell you?
 // =======================================================================
+
+$myAssocArray = [
+	'id' => 5, 
+	'color' => 'white',
+	'fallingToItsDeath' => false,
+	'rhinosEndangered' => true,
+	];
+
+	$myAssocArray['ID'] = 'added';
+
+	print_r($myAssocArray);
 
 // END
 echo "\n";

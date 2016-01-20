@@ -1,12 +1,32 @@
 <?php require('header.php'); ?>
 
+<?php 
+
+require('database.php');
+
+$db = new Database();
+$query = "SELECT users.username as author_name, threads.id, threads.title, posts.date FROM `threads` " .
+	"JOIN users ON users.id = threads.author_id " .
+	"JOIN posts ON posts.thread_id = threads.id " . 
+	"ORDER BY date DESC";
+
+$threads = array();
+
+$results = $db->query($query);
+
+while ($result = $results->fetch_assoc()) {
+	array_push($threads, $result);
+}
+
+?>
+
 <hr>
 
-<h3>Title text will go here</h3>
+<h3><?= $thread['title']; ?></h3>
 
 <p>
 	<em>
-		By <a>USERNAME</a>
+		By <a><?= $thread['author_name']; ?></a>
 	</em>
 </p>
 
@@ -14,11 +34,11 @@
 
 <div class="post">
 	<p class="post_details">
-		PaulStatezny | Mon Nov 30, 2015 11:01 AM
+		<?= $thread['author_name']; ?> | <?= date('n/j/Y H:i', strtotime($thread['date'])); ?>
 	</p>
 
 	<p>
-		(Content:)  Hey guys, I just wanted to share this recipe for homemade apple pie.
+		<?= $thread['title']; ?>
 	</p>
 
 	<p>

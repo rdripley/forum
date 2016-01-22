@@ -5,14 +5,21 @@
 require('database.php');
 
 $db = new Database();
-$query = "SELECT users.username as author_name, threads.id, threads.title, posts.date FROM `threads` " .
-	"JOIN users ON users.id = threads.author_id " .
-	"JOIN posts ON posts.thread_id = threads.id " . 
-	"ORDER BY date DESC";
+$threadsquery = "SELECT threads.*, users.username as author_name FROM threads" .
+	"JOIN users ON users.id = threads.author_id" .
+	"WHERE threads.id = 1";
 
+
+$postsquery = "SELECT posts.*, users.username as author_name FROM `posts`" .
+	"JOIN users ON users.id = posts.author_id" .
+	"WHERE posts.thread_id = 1"
+	"ORDER BY posts.date ASC";
+
+
+/*I'm not sure what to change for the rest of this PHP code */
 $threads = array();
 
-$results = $db->query($query);
+$results = $db->query($threadsquery);
 
 while ($result = $results->fetch_assoc()) {
 	array_push($threads, $result);

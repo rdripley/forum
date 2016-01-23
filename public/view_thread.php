@@ -12,19 +12,19 @@ $threadsquery = "SELECT threads.*, users.username as author_name FROM threads" .
 
 $postsquery = "SELECT posts.*, users.username as author_name FROM `posts`" .
 	"JOIN users ON users.id = posts.author_id" .
-	"WHERE posts.thread_id = 1"
+	"WHERE posts.thread_id = 1" .
 	"ORDER BY posts.date ASC";
 
+$posts = array();
 
-/*I'm not sure what to change for the rest of this PHP code */
-$threads = array();
-
-$results = $db->query($threadsquery);
-
+$results = $db->query($postsquery);
+var_dump($results);
 while ($result = $results->fetch_assoc()) {
-	array_push($threads, $result);
+	array_push($posts, $result);
 }
 
+
+$thread 
 ?>
 
 <hr>

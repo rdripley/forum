@@ -8,7 +8,7 @@ $db = new Database();
 $query = "SELECT users.username as author_name, threads.id, threads.title, posts.date FROM `threads` " .
 	"JOIN users ON users.id = threads.author_id " .
 	"JOIN posts ON posts.thread_id = threads.id " . 
-	"ORDER BY date DESC";
+	"GROUP BY threads.id ORDER BY date DESC";
 
 $threads = array();
 
@@ -19,9 +19,13 @@ while ($result = $results->fetch_assoc()) {
 }
 
 ?>
-<form action="make_thread.php" id="newthread">
-	<input type="submit" value="Make a New Thread">
-</form>
+
+<?php
+	if ($_SESSION['user']) { ?>
+		<form action="make_thread.php" id="newthread">
+			<input type="submit" value="Make a New Thread">
+		</form>
+	<?php } ?>
 
 <section>
 	<table class="thread-table">
@@ -35,7 +39,7 @@ while ($result = $results->fetch_assoc()) {
 			foreach ($threads as $thread) { ?>
 				<tr>
 					<td>
-						<a href="view_thread.php"><?= $thread['title']; ?></a>
+						<a href="view_thread.php?id=<?= $thread['id']; ?>"><?= $thread['title']; ?></a>
 					</td>
 					<td><?= $thread['author_name']; ?></td>
 					<td><?= date('n/j/Y H:i', strtotime($thread['date'])); ?></td>
@@ -46,5 +50,4 @@ while ($result = $results->fetch_assoc()) {
 		?>
 	</table>
 </section>
-
 <?php require('footer.php'); ?>

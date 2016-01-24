@@ -57,6 +57,7 @@ $thread = $threadResults->fetch_assoc();
 		<button type="button">
 			Delete
 		</button>
+
 	</div>
 	<?php } ?>
 

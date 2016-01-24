@@ -4,7 +4,11 @@
 
 	session_start();
 
+<<<<<<< HEAD
 	$authorId = $_SESSION['user_id'];
+=======
+	$authorId = $_SESSION['author_id'];
+>>>>>>> master
 
 	$threadId = $_POST['thread_id'];
 

@@ -53,6 +53,13 @@ $thread = $threadResults->fetch_assoc();
 		<p>
 		<?= $post['content']; ?>
 		</p>
+
+<?php 
+	if ($_SESSION['user'] === $post['author_name']) { ?>
+		<button type="button">
+			Delete
+		</button>
+	<?php } ?>
 	</div>
 	<?php } ?>
 

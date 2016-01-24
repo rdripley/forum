@@ -4,6 +4,10 @@ require('init_form.php');
 
 session_start();
 
+if ($_SESSION['user'] === NULL) {
+	header("Location: http://rdripley.com/forum");
+}
+
 if (formIsBeingSubmitted()) {
 	$title = $_POST['title'];
 	$content = $_POST['content'];

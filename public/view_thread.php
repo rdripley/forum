@@ -56,7 +56,7 @@ $thread = $threadResults->fetch_assoc();
 
 <?php 
 	if ($_SESSION['user'] === $post['author_name']) { ?>
-		<button type="button">
+		<button onclick="">
 			Delete
 		</button>
 	<?php } ?>

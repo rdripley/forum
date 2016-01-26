@@ -56,9 +56,12 @@ $thread = $threadResults->fetch_assoc();
 
 <?php 
 	if ($_SESSION['user'] === $post['author_name']) { ?>
-		<button onclick="">
-			Delete
-		</button>
+		<form action="delete_post.php" method="post">
+			<input type="hidden" name="" value="Delete Post">
+				<button type="button">
+					Delete
+				</button>
+		</form>
 	<?php } ?>
 	</div>
 	<?php } ?>

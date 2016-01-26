@@ -45,9 +45,13 @@ while ($result = $results->fetch_assoc()) {
 					<td><?= date('n/j/Y H:i', strtotime($thread['date'])); ?>
 						<?php 
 						if ($_SESSION['user'] === $thread['author_name']) { ?>
-							<button type="button">
-								Delete
-							</button>
+							<form action="delete_thread.php" method="post">
+								<input type="hidden" name="title" value="What is the best video game?">
+									<button type="button">
+										Delete
+									</button>
+								</input>
+							</form>
 						<?php } ?>
 					</td>
 				</tr>

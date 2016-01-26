@@ -4,15 +4,13 @@
 
 	session_start();
 
-	$id = $_SESSION['user_id'];
+	$postId = $_POST['id'];
 
-	$threadId = $_POST['thread_id'];
-
-	$content = $_POST['content'];
+	$authorId = $_SESSION['user_id'];
 
 	$db = new Database();
 
-	$query = "DELETE FROM posts WHERE id= 6 AND thread_Id= 8";
+	$query = "DELETE FROM posts WHERE id= $postId AND author_id= $authorId";
 
 	$db->query($query);
 

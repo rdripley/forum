@@ -46,8 +46,8 @@ while ($result = $results->fetch_assoc()) {
 						<?php 
 						if ($_SESSION['user'] === $thread['author_name']) { ?>
 							<form action="delete_thread.php" method="post">
-								<input type="hidden" name="title" value="What is the best video game?">
-									<button type="button">
+								<input type="hidden" name="user_id" value= 1>
+									<button type="submit">
 										Delete
 									</button>
 								</input>

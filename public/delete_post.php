@@ -4,7 +4,7 @@
 
 	session_start();
 
-	$authorId = $_SESSION['author_id'];
+	$id = $_SESSION['user_id'];
 
 	$threadId = $_POST['thread_id'];
 
@@ -12,7 +12,7 @@
 
 	$db = new Database();
 
-	$query = "DELETE FROM posts WHERE author_id=, thread_id=, content=,";
+	$query = "DELETE FROM posts WHERE id= 6 AND thread_Id= 8";
 
 	$db->query($query);
 

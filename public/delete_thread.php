@@ -4,13 +4,13 @@
 
 	session_start();
 
-	$title = $_SESSION['title'];
+	$id = $_SESSION['user_id'];
 
 	$author_id = $_POST['author_id'];
 
 	$db = new Database();
 
-	$query = "DELETE FROM threads WHERE title='What is the best video game?' AND author_id= 6";
+	$query = "DELETE FROM threads WHERE id= 6 AND author_id= 6";
 
 	$db->query($query);
 

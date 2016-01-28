@@ -6,6 +6,8 @@ require('database.php');
 
 $threadId = $_GET['id'];
 
+$postId = $_Post['id'];
+
 $db = new Database();
 $threadsQuery = "SELECT threads.*, users.username as author_name FROM threads " .
 	"JOIN users ON users.id = threads.author_id " .
@@ -57,7 +59,7 @@ $thread = $threadResults->fetch_assoc();
 <?php 
 	if ($_SESSION['user'] === $post['author_name']) { ?>
 		<form action="delete_post.php" method="post">
-			<input type="hidden" name="thread_id" value= "<?= $threadId;?>">
+			<input type="hidden" name="id" value= "<?= $PostId;?>">
 				<button type="submit">
 					Delete
 				</button>

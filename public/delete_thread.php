@@ -4,15 +4,23 @@
 
 	session_start();
 
-	$postId = $_POST['id'];
+	$threadId = $_POST['id'];
 
 	$authorId = $_SESSION['user_id'];
 
 	$db = new Database();
 
-	$threadsQuery = "DELETE FROM threads WHERE id= $postId AND author_id= $authorId";
+	$query = "SELECT * FROM threads WHERE id = $_GET['id'] AND author_id = $_SESSION['user_id']";
 
-	$postsQuery = "DELETE FROM posts WHERE id= $postId AND author_id= $authorId";
+	$result = $db->query($query);
+
+	if ($result === false) {
+		header("Location: http://rdripley.com/forum");
+	}
+
+	$threadsQuery = "DELETE FROM threads WHERE thread_id= $threadId";
+
+	$postsQuery = "DELETE FROM posts WHERE thread_id= $threadId AND author_id= $authorId";
 
 	$db->query($threadsQuery);
 

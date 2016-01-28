@@ -46,7 +46,7 @@ while ($result = $results->fetch_assoc()) {
 						<?php 
 						if ($_SESSION['user'] === $thread['author_name']) { ?>
 							<form action="delete_thread.php" method="post">
-								<input type="hidden" name="user_id" value= 1>
+								<input type="hidden" name="id" value= "<?= $thread['id']; ?>">
 									<button type="submit">
 										Delete
 									</button>

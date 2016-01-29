@@ -10,7 +10,7 @@
 
 	$db = new Database();
 
-	$query = "SELECT * FROM threads WHERE id = $_GET['id'] AND author_id = $_SESSION['user_id']";
+	$query = "SELECT * FROM threads WHERE id = $_GET[id] AND author_id = $_SESSION[user_id]";
 
 	$result = $db->query($query);
 

@@ -1,8 +1,7 @@
-<?php require('header.php'); ?>
-
-<?php 
-
-require('database.php');
+<?php
+	session_start();
+?>
+<?php require('database.php');
 
 $threadId = $_GET['id'];
 
@@ -14,7 +13,7 @@ $threadsQuery = "SELECT threads.*, users.username as author_name FROM threads " 
 	"WHERE threads.id = $threadId";
 
 
-$postsQuery = "SELECT posts.*, users.username as author_name FROM `posts` " .
+$postsQuery = "SELECT posts.*, users.username as author_name FROM posts " .
 	"JOIN users ON users.id = posts.author_id " .
 	"WHERE posts.thread_id = $threadId " .
 	"ORDER BY posts.date ASC";
@@ -23,6 +22,10 @@ $posts = array();
 
 $postResults = $db->query($postsQuery);
 
+var_dump($postResults);
+if ($postResults != true) {
+	header("Location: http://rdripley.com/forum");
+}
 while ($result = $postResults->fetch_assoc()) {
 	array_push($posts, $result);
 }
@@ -30,7 +33,7 @@ while ($result = $postResults->fetch_assoc()) {
 $threadResults = $db->query($threadsQuery);
 
 $thread = $threadResults->fetch_assoc();
-
+require('header.php');
 ?>
 
 <hr>

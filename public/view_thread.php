@@ -1,11 +1,8 @@
 <?php
-	session_start();
-?>
-<?php require('database.php');
+session_start();
+require('database.php');
 
 $threadId = $_GET['id'];
-
-$postId = $_Post['id'];
 
 $db = new Database();
 $threadsQuery = "SELECT threads.*, users.username as author_name FROM threads " .
@@ -22,7 +19,6 @@ $posts = array();
 
 $postResults = $db->query($postsQuery);
 
-var_dump($postResults);
 if ($postResults != true) {
 	header("Location: http://rdripley.com/forum");
 }
@@ -62,7 +58,7 @@ require('header.php');
 <?php 
 	if ($_SESSION['user'] === $post['author_name']) { ?>
 		<form action="delete_post.php" method="post">
-			<input type="hidden" name="id" value= "<?= $PostId;?>">
+			<input type="hidden" name="id" value="<?= $post['id'];?>">
 				<button type="submit">
 					Delete
 				</button>

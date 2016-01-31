@@ -13,7 +13,7 @@ $query = "SELECT users.username as author_name, threads.id, threads.title, posts
 $threads = array();
 
 $results = $db->query($query);
-var_dump($threads);
+
 while ($result = $results->fetch_assoc()) {
 	array_push($threads, $result);
 }

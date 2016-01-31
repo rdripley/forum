@@ -1,7 +1,5 @@
-<?php require('header.php'); ?>
-
-<?php 
-
+<?php
+session_start();
 require('database.php');
 
 $threadId = $_GET['id'];
@@ -12,7 +10,7 @@ $threadsQuery = "SELECT threads.*, users.username as author_name FROM threads " 
 	"WHERE threads.id = $threadId";
 
 
-$postsQuery = "SELECT posts.*, users.username as author_name FROM `posts` " .
+$postsQuery = "SELECT posts.*, users.username as author_name FROM posts " .
 	"JOIN users ON users.id = posts.author_id " .
 	"WHERE posts.thread_id = $threadId " .
 	"ORDER BY posts.date ASC";
@@ -21,6 +19,9 @@ $posts = array();
 
 $postResults = $db->query($postsQuery);
 
+if ($postResults != true) {
+	header("Location: http://rdripley.com/forum");
+}
 while ($result = $postResults->fetch_assoc()) {
 	array_push($posts, $result);
 }
@@ -28,7 +29,7 @@ while ($result = $postResults->fetch_assoc()) {
 $threadResults = $db->query($threadsQuery);
 
 $thread = $threadResults->fetch_assoc();
-
+require('header.php');
 ?>
 
 <hr>
@@ -53,6 +54,16 @@ $thread = $threadResults->fetch_assoc();
 		<p>
 		<?= $post['content']; ?>
 		</p>
+
+<?php 
+	if ($_SESSION['user'] === $post['author_name']) { ?>
+		<form action="delete_post.php" method="post">
+			<input type="hidden" name="id" value="<?= $post['id'];?>">
+				<button type="submit">
+					Delete
+				</button>
+		</form>
+	<?php } ?>
 	</div>
 	<?php } ?>
 

@@ -42,7 +42,18 @@ while ($result = $results->fetch_assoc()) {
 						<a href="view_thread.php?id=<?= $thread['id']; ?>"><?= $thread['title']; ?></a>
 					</td>
 					<td><?= $thread['author_name']; ?></td>
-					<td><?= date('n/j/Y H:i', strtotime($thread['date'])); ?></td>
+					<td><?= date('n/j/Y H:i', strtotime($thread['date'])); ?>
+						<?php 
+						if ($_SESSION['user'] === $thread['author_name']) { ?>
+							<form action="delete_thread.php" method="post">
+								<input type="hidden" name="id" value= "<?= $thread['id']; ?>">
+									<button type="submit">
+										Delete
+									</button>
+								</input>
+							</form>
+						<?php } ?>
+					</td>
 				</tr>
 
 				<?php

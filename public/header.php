@@ -167,7 +167,7 @@
 				</li>
 
 				<li>
-					<a href="Account.html">Account</a>
+					<a href="account.php">Account</a>
 				</li>
 
 				<li>

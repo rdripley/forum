@@ -1,26 +1,26 @@
 <?php 
 
-	require('database.php');
+require('database.php');
 
-	session_start();
+session_start();
 
-	$authorId = $_SESSION['author_id'];
+$authorId = $_SESSION['author_id'];
 
-	$threadId = $_POST['thread_id'];
+$threadId = $_POST['thread_id'];
 
-	$content = $_POST['content'];
+$content = $_POST['content'];
 
-	$date = new DateTime();
+$date = new DateTime();
 
-	$date = $date->format('Y-m-d H:i:s');
+$date = $date->format('Y-m-d H:i:s');
 
-	$db = new Database();
+$db = new Database();
 
-	$query = "INSERT INTO posts (`author_id`, `thread_id`, `content`, `date`) VALUES ($authorId, $threadId, \"$content\", \"$date\")";
+$query = "INSERT INTO posts (`author_id`, `thread_id`, `content`, `date`) VALUES ($authorId, $threadId, \"$content\", \"$date\")";
 
-	$db->query($query);
+$db->query($query);
 
-		header("Location: http://rdripley.com/forum/view_thread.php?id=$threadId");
+	header("Location: http://rdripley.com/forum/view_thread.php?id=$threadId");
 
 ?>
 

@@ -4,7 +4,7 @@ require('database.php');
 
 session_start();
 
-$authorId = $_SESSION['author_id'];
+$authorId = $_SESSION['user_id'];
 
 $threadId = $_POST['thread_id'];
 

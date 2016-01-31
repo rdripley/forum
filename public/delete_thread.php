@@ -20,7 +20,7 @@
 
 	$threadsQuery = "DELETE FROM threads WHERE thread_id= $threadId";
 
-	$postsQuery = "DELETE FROM posts WHERE thread_id= $threadId AND author_id= $authorId";
+	$postsQuery = "DELETE FROM posts WHERE thread_id= $threadId";
 
 	$db->query($threadsQuery);
 

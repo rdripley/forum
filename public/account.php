@@ -13,7 +13,8 @@ $new_password = $_POST['new_password'];
 if (formIsBeingSubmitted()) {
 	if ($_POST['confirm_password'] === $_POST['new_password'] && strlen($_POST['new_password']) >= 8) {
 	$db = new Database();
-	$result = $db->query("UPDATE users SET password= $_POST[new_password] WHERE id= $_SESSION[user_id]");
+	$result = "UPDATE users SET password= '$_POST[new_password]' WHERE id= $_SESSION[user_id]";
+	$db->query($result);
 	echo "Password changed successfully";
 	} elseif ($_POST['confirm_password'] != $_POST['new_password']){
 		echo "Error: Password must match";

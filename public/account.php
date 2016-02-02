@@ -6,10 +6,6 @@ if ($_SESSION['user'] === NULL) {
 	header("Location: http://rdripley.com/forum");
 }
 
-$password = $_POST['password'];
-$userId= $_SESSION['user_id'];
-$new_password = $_POST['new_password'];
-
 if (formIsBeingSubmitted()) {
 	if ($_POST['confirm_password'] === $_POST['new_password'] && strlen($_POST['new_password']) >= 8) {
 	$db = new Database();

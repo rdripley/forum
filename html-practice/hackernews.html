@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<style type="text/css">
+			body {
+				font-family: Arial;
+			}
+			main {
+				background-color: #f6f6ef;
+				margin: 0 100px;
+			}
+			header {
+				background-color: #ff6600;
+			}
+			footer {
+				border-top: 2px solid #ff6600;
+			}
+			#logo {
+				margin: 2px;
+			}
+			.title {
+				font-weight: bold;
+			}
+			nav {
+				display: inline-block;
+			}
+			nav a {
+				color: #000;
+				text-decoration: none;
+			}
+			nav a::after {
+				content: ' |';
+			}
+			nav a:last-child::after {
+				content: '';
+			}
+			a.login-button {
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header>
+				<img src="logo.png" id="logo">
+				<span class="title">
+					Hacker News
+				</span>
+				<nav>
+					<a href="#">new</a>
+					<a href="#">comments</a>
+					<a href="#">show</a>
+					<a href="#">ask</a>
+					<a href="#">jobs</a>
+					<a href="#">submit</a>
+				</nav>
+				<a class="login-button">
+					login
+				</a>
+			</header>
+			<section class="content">
+				Some links
+			</section>
+			<footer>
+				Some footer stuff
+			</footer>
+		</main>
+	</body>
+</html>

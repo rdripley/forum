@@ -4,15 +4,16 @@
 		<style>
 			html {
 				width: auto;
-				height: auto;
+			}
+			body {
+				font-family: sans-serif;
+				font-size: 0.80em;
 			}
 			.container {
-				min-width: 300px;
-				width: 300px;
-				min-height: 300px;
-				height: 300px;
-				margin: 0px;
-				padding: 0px;
+				min-width: 825px;
+				width: 1000px;
+				min-height: 800px;
+				height: 1000px;
 			}
 			img, input {
 				margin: 5px;
@@ -20,44 +21,108 @@
 			}
 			img {
 				position: relative;
-				top: 200px;
-				left: 300px;
+				top: 180px;
+				left: 600px;
 			}
 			.search-bar {
 				position: relative;
-				top: 200px;
-				left: 225px;
+				top: 180px;
+				left: 525px;
 				border: 1px solid blue;
 				width: 475px;
 				height: 40px;
 			}
+			.google-search, .feeling-lucky {
+				margin: 10px;
+				padding: 0px 16px;
+				font-weight: bold;
+			}
 			.google-search {
 				position: relative;
-				top: 225px;
-				left: 350px;
-				border: 1px solid lightgrey;
-				width: 110px;
+				top: 250px;
+				left: 135px;
+				border: 1px solid #f2f2f2;
+				background-color: #f2f2f2;
+				color: #757575;
+				width: 130px;
 				height: 35px;
-				background-color: lightgrey;
 			}
 			.feeling-lucky {
 				position: relative;
-				top: 225px;
-				left: 350px;
-				border: 1px solid lightgrey;
-				width: 110px;
+				top: 250px;
+				left: 120px;
+				border: 1px solid #f2f2f2;
+				background-color: #f2f2f2;
+				color: #757575;
+				width: 140px;
 				height: 35px;
-				background-color: lightgrey;
+			}
+			header a, header img {
+				color: #757575;
+				text-decoration: none;
+				float: right;
+				padding: 10px;
+				top: 0px;
+			}
+			footer {
+				width: 1585px;
+				height: 35px;
+				position: absolute;
+				bottom: 0px;
+				border: 1px solid #f2f2f2;
+				background-color: #f2f2f2;
+				margin-left: -10px;
+			}
+			.footer-right {
+				color: #757575;
+				position: relative;
+				bottom: 0px;
+				float: right;
+				text-decoration: none;
+				padding: 15px;
+				display: inline-block;
+			}
+			footer a:first-child {
+				margin-left: 5px;
+			}
+			.footer-left {
+				color: #757575;
+				position: relative;
+				bottom: 0px;
+				float: left;
+				text-decoration: none;
+				padding: 15px;
+				display: inline-block;
 			}
 		</style>
 	</head>
 	<body>
 		<main class="container">
+		<header>
+			<nav> 
+				<a href="#"> <img src="grid.png"> </a>
+				<a href="#"> <img src="bell.png"> </a>
+				<a href="#"> <img src="user.png"> </a>
+				<a href="#"> Images </a>
+				<a href="#"> Gmail </a>
+			</nav>
+		</header>
 		<img src="google-image.png" "google-image">
 			<div class="search">
 			<input type="text" class="search-bar">
-			<input type="button" class="google-search">
-			<input type="button" class="feeling-lucky">
+			<input type="button" class="google-search" value="Google Search">
+			<input type="button" class="feeling-lucky" value="I'm Feeling Lucky">
+			</div>
+		<footer>
+			<nav>
+				<a href="#" class="footer-left"> Advertising </a>
+				<a href="#" class="footer-left"> Business </a>
+				<a href="#" class="footer-left"> About </a>
+				<a href="#" class="footer-right"> Privacy </a>
+				<a href="#" class="footer-right"> Terms </a>
+				<a href="#" class="footer-right"> Settings </a>
+			</nav>
+		</footer>
 		</main>
 	</body>
 </html>

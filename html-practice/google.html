@@ -2,140 +2,92 @@
 <html>
 	<head>
 		<style>
-			html {
-				width: auto;
+			header {
+				text-align: right;
+			}
+			.header-link {
+				text-decoration: none;
+				color: #333;
+				display: inline-block;
+				padding: 5px;
+				margin-top: 5px;
+			}
+			main {
+				width: 500px;
+				margin: 0 auto;
+				text-align: center;
+				margin-top: 100px;
 			}
 			body {
-				font-family: sans-serif;
-				font-size: 0.80em;
-			}
-			.container {
-				min-width: 825px;
-				width: 1000px;
-				min-height: 800px;
-				height: 1000px;
-			}
-			.container {
-				min-width: 300px;
-				width: 300px;
-				min-height: 300px;
-				height: 300px;
-				margin: 0px;
-				padding: 0px;
-			}
-			img, input {
-				margin: 5px;
-				padding: 0px;
-			}
-			img {
-				position: relative;
-				top: 180px;
-				left: 600px;
+				font-family: arial;
+				font-size: 13px;
 			}
 			.search-bar {
-				position: relative;
-				top: 180px;
-				left: 525px;
+				width: 100%;
+				padding: 10px;
+				margin: 30px 0 30px;
+				border-radius: 2px;
 			}
-			.search-bar {
-				position: relative;
-				top: 200px;
-				left: 225px;
-				border: 1px solid blue;
-				width: 475px;
-				height: 40px;
-			}
-			.google-search, .feeling-lucky {
-				margin: 10px;
-				padding: 0px 16px;
+			.search-button {
+				background-color: #eaeaea;
+				color: #333;
+				border: 0;
+				padding: 10px;
 				font-weight: bold;
 			}
-			.google-search {
-				position: relative;
-				top: 250px;
-				left: 135px;
-				border: 1px solid #f2f2f2;
-				background-color: #f2f2f2;
-				color: #757575;
-				width: 130px;
-				height: 35px;
-			}
-			.feeling-lucky {
-				position: relative;
-				top: 250px;
-				left: 120px;
-				border: 1px solid #f2f2f2;
-				background-color: #f2f2f2;
-				color: #757575;
-				width: 140px;
-				height: 35px;
-			}
-			header a, header img {
-				color: #757575;
-				text-decoration: none;
-				float: right;
-				padding: 10px;
-				top: 0px;
-			}
 			footer {
-				width: 1585px;
+				width: 100%;
+				min-width: 500px;
 				height: 35px;
 				position: absolute;
 				bottom: 0px;
-				border: 1px solid #f2f2f2;
+				left: 0px;
+				border-top: 1px solid #f2f2f2;
 				background-color: #f2f2f2;
-				margin-left: -10px;
 			}
-			.footer-right {
-				color: #757575;
-				position: relative;
-				bottom: 0px;
-				float: right;
+			footer nav a {
+				padding: 10px;
 				text-decoration: none;
-				padding: 15px;
-				display: inline-block;
+				color: #333;
 			}
-			footer a:first-child {
-				margin-left: 5px;
-			}
-			.footer-left {
-				color: #757575;
-				position: relative;
-				bottom: 0px;
+			.nav-column {
+				width: 50%;
 				float: left;
-				text-decoration: none;
-				padding: 15px;
-				display: inline-block;
+				padding-top: 10px;
+			}
+			.nav-column-left {
+				text-align: left;
+			}
+			.nav-column-right {
+				text-align: right;
 			}
 		</style>
 	</head>
 	<body>
-		<main class="container">
-			<header>
-				<nav> 
-					<a href="#"> <img src="grid.png"> </a>
-					<a href="#"> <img src="bell.png"> </a>
-					<a href="#"> <img src="user.png"> </a>
-					<a href="#"> Images </a>
-					<a href="#"> Gmail </a>
-				</nav>
-			</header>
-			<img src="google-image.png" "google-image">
-				<div class="search">
-				<input type="text" class="search-bar">
-				<input type="button" class="google-search" value="Google Search">
-				<input type="button" class="feeling-lucky" value="I'm Feeling Lucky">
-				</div>
-			<footer>
-				<nav>
-					<a href="#" class="footer-left"> Advertising </a>
-					<a href="#" class="footer-left"> Business </a>
-					<a href="#" class="footer-left"> About </a>
-					<a href="#" class="footer-right"> Privacy </a>
-					<a href="#" class="footer-right"> Terms </a>
-					<a href="#" class="footer-right"> Settings </a>
-				</nav>
-			</footer>
+		<header>
+			<a href="#" class="header-link">User</a>
+			<a href="#" class="header-link">Gmail</a>
+			<a href="#" class="header-link">Images</a>
+		</header>
+		<main>
+			<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+			<input type="text" class="search-bar">
+			<button class="search-button">Google Search </button>
+			<button class="search-button">I'm Feeling Lucky </button>
 		</main>
+		<footer>
+			<nav>
+				<div class="nav-column nav-column-left">
+					<a href="#"> Advertising </a>
+					<a href="#"> Business </a>
+					<a href="#"> About </a>
+				</div>
+				<div class="nav-column nav-column-right">
+					<a href="#"> Privacy </a>
+					<a href="#"> Terms </a>
+					<a href="#"> Settings </a>
+				</div>
+			</nav>
+		</footer>
 	</body>
 </html>

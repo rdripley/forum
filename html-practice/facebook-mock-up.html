@@ -4,9 +4,16 @@
 		<style>
 		html {
 			background-color: #e9eaed;
+			height: 100%;
+			width: 100%;
+		}
+		body {
+			width: 100%;
+			height: 800px;
+			margin: 0;
 		}
 		#Facebook-menu-bar {
-			background-color: #3333ff;
+			background-color: #3a5795;
 			color: white;
 			position: relative;
 			top: 0;
@@ -24,7 +31,7 @@
 			border: 1px solid black;
 			border-radius: 5px;
 		}
-		main {
+		#content {
 			width: 500px;
 			height: 100%;
 			margin: 0 auto;
@@ -50,6 +57,8 @@
 			float: left;
 			padding: 5px;
 			border-right: 1px solid #e9eaed;
+			color: #3a5795;
+			font-weight: bold;
 		}
 		.status-update-input img {
 			height: 50px;
@@ -81,6 +90,48 @@
 			float: right;
 			margin: 5px;
 		}
+		#sample-status {
+			background-color: white;
+			border: 1px solid #e9eaed;
+			margin: 10px 0;
+			height: 120px;
+			padding-top: 10px;
+		}
+		#sample-status-title {
+			color: #3a5795;
+			margin-left: 10px;
+			font-weight: bold;
+			font-family: sans-serif;
+			font-size: 14px;
+		}
+		#sample-status img {
+			height: 50px;
+			width: 50px;
+			float: left;
+			margin-left: 5px;
+		}
+		#sample-status p {
+			position: relative;
+			top: 25px;
+			text-align: left;
+			padding: 10px 0;
+			margin: 10px;
+		}
+		.sample-status-options {
+			display: inline-block;
+			list-style-type: none;
+			width: 100%;
+			margin: 10px 0;
+			padding: 0;
+			border-top: 1px solid #e9eaed;
+		}
+		.sample-status-options span {
+			float: left;
+			padding: 5px;
+		}
+		#ad-content {
+
+		}
 		</style>
 	</head>
 	<body>
@@ -95,7 +146,8 @@
 					<li><span>Create Photo Album</span></li>
 				</ul>
 				<div class="status-update-input">
-				<img src="logo.png"><input type="text" placeholder="What's on your mind?">
+				<img src="logo.png">
+				<input type="text" placeholder="What's on your mind?">
 				</div>
 				<div>
 					<ul class="status-update-options">
@@ -108,14 +160,20 @@
 					</ul>
 				</div>
 			</div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id justo ac nisi feugiat sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vel odio nec velit pretium ultrices. Proin sagittis quam ligula, at tempor urna pretium eget. Curabitur mollis justo et mauris elementum, non tempus purus vulputate. Morbi vel lectus neque. Mauris convallis dui ipsum, at laoreet quam ultrices non. Mauris ut mi eget eros porta scelerisque. Nulla accumsan non purus vel dictum. Sed ut sem diam</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id justo ac nisi feugiat sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vel odio nec velit pretium ultrices. Proin sagittis quam ligula, at tempor urna pretium eget. Curabitur mollis justo et mauris elementum, non tempus purus vulputate. Morbi vel lectus neque. Mauris convallis dui ipsum, at laoreet quam ultrices non. Mauris ut mi eget eros porta scelerisque. Nulla accumsan non purus vel dictum. Sed ut sem diam</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id justo ac nisi feugiat sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vel odio nec velit pretium ultrices. Proin sagittis quam ligula, at tempor urna pretium eget. Curabitur mollis justo et mauris elementum, non tempus purus vulputate. Morbi vel lectus neque. Mauris convallis dui ipsum, at laoreet quam ultrices non. Mauris ut mi eget eros porta scelerisque. Nulla accumsan non purus vel dictum. Sed ut sem diam</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id justo ac nisi feugiat sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vel odio nec velit pretium ultrices. Proin sagittis quam ligula, at tempor urna pretium eget. Curabitur mollis justo et mauris elementum, non tempus purus vulputate. Morbi vel lectus neque. Mauris convallis dui ipsum, at laoreet quam ultrices non. Mauris ut mi eget eros porta scelerisque. Nulla accumsan non purus vel dictum. Sed ut sem diam</p>
+			<div id="sample-status">
+				<img src="logo.png">
+				<span id="sample-status-title"> Russell Ripley </span>
+				<p>Fun times watching the Office.</p>
+				<ul class="sample-status-options">
+					<li><span>Like</span></li>
+					<li><span>Comment</span></li>
+					<li><span>Share</span></li>
+				</ul>
+			</div>
 		</main>
-		<sidebar id="profile-content">
-		</sidebar>
-		<sidebar id="ad-content">
-		</sidebar>
+		<div id="profile-content">
+		</div>
+		<div id="ad-content">
+		</div>
 	</body>
 </html>

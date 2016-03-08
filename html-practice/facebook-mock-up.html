@@ -18,9 +18,9 @@
 				margin: 0;
 			}
 			#search-bar {
-				position: relative;
+				position: fixed;
 				top: 7px;
-				left: 225px;
+				left: 400px;
 				width: 450px;
 				height: 15px;
 				padding: 5px;
@@ -28,16 +28,17 @@
 				border-radius: 5px;
 			}
 			.content {
-				width: 400px;
-				height: 100%;
+				width: 1000px;
+				height: 1000px;
 				margin: 60px auto;
 			}
 			.status-box {
 				background-color: white;
 				border: 1px solid #e9eaed;
 				margin-bottom: 10px;
+				margin-left: 235px;
 				height: 140px;
-				width: 100%;
+				width: 500px;
 			}
 			.status-box-options {
 				color: blue;
@@ -88,9 +89,11 @@
 			#sample-status {
 				background-color: white;
 				border: 1px solid #e9eaed;
-				margin: 10px 0;
+				margin-bottom: 10px;
+				margin-left: 235px;
 				height: 120px;
 				padding-top: 10px;
+				width: 500px;
 			}
 			#sample-status-title {
 				color: #3a5795;
@@ -124,16 +127,35 @@
 				float: left;
 				padding: 5px;
 			}
+			#profile-content {
+				height: 700px;
+				width: 200px;
+				background-color: white;
+				border: 1px solid #e9eaed;
+				display: inline-block;
+				float: left;
+				margin-left: 20px;
+			}
 			#ad-content {
-
+				height: 700px;
+				width: 250px;
+				background-color: white;
+				border: 1px solid #e9eaed;
+				display: inline-block;
+				float: right;
+				position: fixed;
+				right: 450px;
 			}
 		</style>
 	</head>
 	<body>
-		<header id="facebook-menu-bar">
-			<input type="text" id="search-bar" placeholder="Search Facebook">
-		</header>
+		<header id="facebook-menu-bar"></header>
 		<main class="content">
+			<div id="profile-content">
+			</div>
+			<div id="ad-content">
+			</div>
+			<input type="text" id="search-bar" placeholder="Search Facebook">
 			<div class="status-box">
 				<ul class="status-box-options">
 					<li>Update Status</li>
@@ -166,9 +188,5 @@
 				</ul>
 			</div>
 		</main>
-		<div id="profile-content">
-		</div>
-		<div id="ad-content">
-		</div>
 	</body>
 </html>
